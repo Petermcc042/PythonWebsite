@@ -1,0 +1,30 @@
+{% extends "Essential_Templates/base_nav.html" %}
+{% block content %}
+
+
+<div class="flex-container-row base-tutorial">
+    <div class="flex-container-column column-left base-tutorial">
+        {% block left_column %}
+        {% endblock %}
+    </div> <!--end of column left-->
+
+    <div class="flex-container-column column-middle base-tutorial">
+        {% block middle_column %}
+        {% endblock %}
+    </div><!--end of column middle-->
+
+    <div class="flex-container-column column-right base-tutorial">
+        {% block right_column %}
+        {% endblock %}
+    </div><!--end of column right-->
+</div><!--end of row-->
+
+
+{% block open_section %}
+{% endblock %}
+
+<div class="footer">
+    <p>Author: Peter McClintock </p>
+</div>
+
+{% endblock content %}

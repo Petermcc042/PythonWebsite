@@ -1,0 +1,100 @@
+/* HOME PAGE ONLY */
+/* LARGE HERO IMAGE AT TOP OF PAGE 40B38C #CEDEF2*/
+
+.flex-container-column.hero {
+  background-color: #45C4B0;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.bottom-text {
+  letter-spacing: 0.065em;
+  line-height: 1em;
+  font-size: 68px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+
+.bottom-button {
+  letter-spacing: 0.065em;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 25px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  border: 2px solid black;
+  color:#000000;
+  text-align: center;
+
+  background-image: #FF9900;
+  animation: mymove 2s infinite;
+}
+
+@keyframes mymove {
+  0% {background-color: #DAFDBA;}
+  50% {background-color: #DAFDBA;}
+  100% {background-color: #DAFDBA;}
+}
+
+
+.bottom-button:hover {
+  background-image: linear-gradient(#45C4B0,#DAFDBA);
+}
+
+
+
+.wrapper {
+  height: 5vh;
+  width: 100%;
+  /*This part is important for centering*/
+  display: grid;
+  place-items: center;
+}
+
+.typing-demo {
+  width: 22ch;
+  animation: typing 2s steps(28), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 34px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #91919172;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+@media screen and (max-width: 800px) { 
+  .hero-image {     height: 600px; }
+
+  .typing-demo { font-size: 25px; }
+
+  .bottom-text {font-size: 40px; }
+  .bottom-button {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

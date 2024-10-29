@@ -1,0 +1,17 @@
+/*--------------------- This ensures with padding everything stays within 100% of screen ---------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+
+/*--------------------- COLUMN CONTAINER ---------------------------*/
+main.h1 {
+  width: 100%;
+  min-height: 900px;
+}
+
+
+
+
+
+

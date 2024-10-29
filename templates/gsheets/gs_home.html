@@ -1,0 +1,16 @@
+{% extends "gsheets/base_excel_tutorial.html" %}
+      
+{% block middle_column %}   
+<div class="main base-tutorial">
+  <ol>
+    <li><a href="{{ url_for('gs_index_match_sumifs') }}">INDEX() MATCH() SUMIFS() Combination</a></li>
+    <li><a href="{{ url_for('gs_index_match_sumifs') }}">Use XLOOKUP() not VLOOKUP()</a></li>
+  </ol>
+
+</div>
+{% endblock middle_column %}   
+      
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  

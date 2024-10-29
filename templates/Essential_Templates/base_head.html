@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="google-site-verification" content="c9YYswMG6jrJWUa4qfJ6QHUd08LffCfMEKbU0fo1OZc" />
+
+    <!--my custom css files-->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/all_pages.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/tutorial_page.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/tables.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/tutorial_list_home.css')}}" type="text/css">
+
+
+    <!-- icons -->
+    <link href="../static/site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="../static/site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+    <!-- inline code highlighting -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/night-owl.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- fonts - standard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="glasses.ico" />
+  </head>
+
+  {% block base_nav %}
+  {% endblock %}
+
+
+
+</body>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</html>

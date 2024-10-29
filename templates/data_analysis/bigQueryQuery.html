@@ -1,0 +1,76 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+
+{% block left_column %}
+<ul>
+        <li><a href="{{ url_for('stickyNav') }}"><b> Project Overview</b> </a></li>
+        <li>        <a href="#dt-exploration">Data Exploration</a></li>
+        <li>        <a href="#kmeans">K Means</a></li>
+        <li>       <a href="#analysingClusters"> Analysing Clusters</a></li> 
+</ul>
+
+{% endblock left_column %}
+
+
+{% block middle_column %}
+<div class="main base-tutorial">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+        <!-- Render the article content -->
+        <!-- {{ article_content | safe }} -->
+
+
+        <h1>Dynamic Plotting using Flask</h1>
+
+
+        <form action="/charting_using_POST">
+                <label for="dataset_name">Reset Page</label>
+                <input type="submit" value="Submit">
+        </form>
+        <br>
+
+        <form action="/submit" method="post">
+                <label for="dataset_name">Select a dataset:</label>
+                <select id="dataset_name" name="dataset_name">
+                        {% for name in filenames %}
+                        <option value="{{ name }}">{{ name }}</option>
+                        {% endfor %}
+                </select>
+
+                <input type="submit" value="Submit">
+        </form>
+
+        <br>
+        <div><h1>{{ selected_dataset | safe }}</h1></div>
+        <div>{{ table_html | safe }}</div>
+        <br>
+
+
+        <form action="/submit_col" method="post">
+                <label for="colName">Columns:</label>
+                <select id="colName" name="colName">
+                        {% for name in colNames %}
+                        <option value="{{ name }}">{{ name }}</option>
+                        {% endfor %}
+                </select>
+
+                <input type="submit" value="Submit">
+        </form>
+
+        <br>
+        <div><h1>{{ selected_column | safe }}</h1></div>
+        <br>
+
+        <h1>Plotly Plot</h1>
+        <div>{{ plot_html | safe }}</div>
+
+
+
+
+</div><!--end of main text-->
+
+{% endblock middle_column %}
+
+{% block right_column %}
+
+{% endblock right_column %}

@@ -1,0 +1,23 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('custclust') }}"><b> Project Overview</b> </a>
+<a href="#dt-exploration">Data Exploration</a>
+<a href="#kmeans">K Means</a>
+<a href="#analysingClusters"> Analysing Clusters</a>
+{% endblock left_column %}  
+
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a> 
+{% block middle_column %}   
+<div class="main base-tutorial">
+
+        <!-- Render the article content -->
+        {{ article_content | safe }}
+
+</div><!--end of main text-->
+{% endblock middle_column %}   
+
+{% block right_column %}  
+  
+{% endblock right_column %}  
+

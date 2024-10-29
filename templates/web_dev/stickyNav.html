@@ -1,0 +1,22 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('stickyNav') }}"><b> Project Overview</b> </a>
+<a href="#classic-nav">Classic Fixed Nav</a>
+<a href="#scrollable-nav">Scrollable Fixed Nav</a>
+{% endblock left_column %}  
+
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a> 
+{% block middle_column %}   
+<div class="main base-tutorial">
+
+        <!-- Render the article content -->
+        {{ article_content | safe }}
+
+</div><!--end of main text-->
+{% endblock middle_column %}   
+
+{% block right_column %}  
+  
+{% endblock right_column %}  
+

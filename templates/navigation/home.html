@@ -1,0 +1,124 @@
+{% extends "Essential_Templates/base_nav.html" %}
+{% block content %}
+
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}" type="text/css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/hero_image.css')}}" type="text/css">
+
+
+<div class="flex-container-column hero">
+  <div class="wrapper">
+    <div class="typing-demo"> A Coding Tutorial Hub. </div>
+  </div>
+  <div class="image-text">
+    <div class="bottom-text">Just About Code</div>
+    <a href="{{ url_for('tutorials_list') }}" style="text-decoration: none;">
+      <div class="bottom-button">Start learning</div>
+    </a>
+  </div>
+</div>
+
+<div class="flex-container-row home">
+  <div style="padding:6px;">
+    <p>Top Projects</p>
+  </div>
+</div>
+
+<div class="flex-container-row home">
+  <div class="homeBox">
+    <div class="gallery">
+      <a target="_blank" href="{{ url_for('shiny_dash') }}">
+        <img src="../static/images/pictures/yellow_square.png" alt="shiny dashboard" width="600" height="400">
+      </a>
+      <div class="desc">Creating a dashboard using R Shiny</div>
+    </div>
+  </div>
+  
+  
+  <div class="homeBox">
+    <div class="gallery">
+      <a target="_blank" href="{{ url_for('covidanalysis') }}">
+        <img src="../static/images/pictures/green_square.png" alt="covid dashboard" width="600" height="400">
+      </a>
+      <div class="desc">Creating a dashboard using Tableau</div>
+    </div>
+  </div>
+  
+  <div class="homeBox">
+    <div class="gallery">
+      <a target="_blank" href="{{ url_for('pw_setup') }}">
+        <img src="../static/images/pictures/yellow_square.png" alt="Walmart Analysis" width="600" height="400">
+      </a>
+      <div class="desc">Build a portfolio website using HTML and CSS</div>
+    </div>
+  </div>  
+  
+  <div class="clearfix"></div>
+  
+  <div style="padding:6px;">
+    <p></p>
+  </div>
+</div>
+
+<style>
+  div.gallery {
+    border: 1px solid #ccc;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .homeBox {
+    padding: 0 6px;
+    float: left;
+    width: 33.333333%;
+    margin: 6px 0;
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .homeBox {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .homeBox {
+      width: 100%;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  </style>
+
+<div class="content-wrap">
+  <!-- all other page content -->
+</div>
+<div class="footer">
+  <p>Author: Peter McClintock </p>
+</div>
+
+
+
+
+
+{% endblock content %}

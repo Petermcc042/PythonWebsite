@@ -1,0 +1,70 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('pw_setup') }}"><b> Portfolio Website</b> </a>
+<a href="{{ url_for('pw_setup') }}"> Setup</a>
+<a href="{{ url_for('pw_python_setup') }}" class="active"> Python Setup</a>
+<a href="{{ url_for('pw_flask_code') }}"> Flask Code</a>
+<a href="{{ url_for('pw_css_code') }}"> CSS Code</a>
+<a href="{{ url_for('pw_run_locally') }}"> Run Locally</a>
+<a href="{{ url_for('pw_hosting') }}"> Hosting / Git & Heroku</a>
+{% endblock left_column %}   
+      
+{% block middle_column %}   
+<div class="main base-tutorial">
+
+  <h2>Python Instalation</h2>
+  <p>
+    To check if you have Python already installed open command prompt and type python or py and hit enter. The build version of python should return if installed.
+    The version of python that this tutorial is built on is python 3.9.7 and hopefully future updates will not wreck any of the tutorial.
+    If you do not have python installed a quick google search should direct you to the main website to download it. For the tutorial we are using the Windows Installer
+    (64-bit) version.
+  </p>
+
+  <h2>Virtual Environment</h2>
+  <p>
+    A virtual environment acts as a separate version of python, libraries and scripts installed into it are isolated from any libraries installed in a “system” Python,
+      i.e., one which is installed as part of your operating system.
+  </p>
+
+  <p>
+    As is good practice we will be setting up virtual environment for this project. The virtual environment package can be installed through the command line using
+    <code>py -m pip install virtualenv</code>. Using command line again we set the path to whichever folder you are completing this project in. You can navigate to your 
+    project folder using <code>C:\your_standard_file_path> cd folder-name\folder-name\project-folder-name</code> . In my case this is 
+    <code>C:\users\pmcc> cd documents\projects\flask tutorial</code>. Now you can run the code <code>py -m venv virtual</code> to setup the virtual environment folder.
+  </p>
+  <p>To install any packages in the virtual environment we can use the command below subsituting package-name with our desired package, i.e. flask.</p>
+  <pre><code>C:\your_standard_file_path\flask tutorial> virtual\Scripts\pip install package-name</code></pre>
+  <p>The packages needed for this project are;</p>
+  <p>
+    <ul>flask</ul>
+    <ul>gunicorn</ul>
+  </p>
+  <p>To check that packages have been installed you can check what packages are in the environment using the command below.</p>
+  <pre><code>C:\your_standard_file_path\flask tutorial> virtual\Scripts\pip freeze</code></pre>
+
+  <h2>Visual Studio Code</h2>
+  <p>
+    To begin working on the project we first need to setup our workspace. For the project I will be using Microsoft Visual Studio Code as it allows easy switching
+    between the different file types. VS is free can be easily installed from their website. Be sure to install visual studio code and not the similarly named Visual Studio 2019
+  </p>
+</div> <!--end of main-->
+
+
+<div class="center">
+  <div class="pagination">
+    <a href="{{ url_for('pw_setup') }}">&laquo;</a>
+    <a href="{{ url_for('pw_setup') }}">1</a>
+    <a href="{{ url_for('pw_python_setup') }}" class="active">2</a>
+    <a href="{{ url_for('pw_flask_code') }}">3</a>
+    <a href="{{ url_for('pw_css_code') }}">4</a>
+    <a href="{{ url_for('pw_run_locally') }}">5</a>
+    <a href="{{ url_for('pw_hosting') }}">6</a>
+    <a href="{{ url_for('pw_flask_code') }}">&raquo;</a>
+  </div>
+</div>
+{% endblock middle_column %}   
+      
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  

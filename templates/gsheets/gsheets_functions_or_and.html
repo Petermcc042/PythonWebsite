@@ -1,0 +1,45 @@
+{% extends "gsheets/base_excel_tutorial.html" %}
+
+
+{% block middle_column %}   
+<div class="main">
+
+  <h1 id="if">OR() & AND()</h1>
+  <p>The OR() & AND() functions work similarly in that they both return a boolean value (TRUE or FALSE).</p>
+  <p>For example the OR() function returns True if any part of the included expressions become true</p>
+  <p>The only values passed into the functions are comparison operators which was looked at with the IF() function</p>
+  <p>(Column C contains the if statement in column B with an = at the front)</p>
+  <img id="myImg" style="width: 60%;" src="../static/images/gsheets/functions/or_basic.png"   class="clickable-pic">
+  <p>These functions are handy because they can contain a number of expressions and so can be used to quickly check eligibility</p>
+  <p>Below is an example using AND() to check if a person is eligible to enter a competition</p>
+  <img id="myImg" style="width: 60%;" src="../static/images/gsheets/functions/and_basic.png"   class="clickable-pic">
+  <p>The above example checks if a person is under the age of 21 and achieved a test score greater than or equal to 80</p>
+  <br>
+  <p>One useful way of using these functions is within the IF() function</p>
+  <p>As covered IF() requires an expression that returns a TRUE or FALSE value as it's first argument. As such you can use AND() or OR() in the first argument</p>
+  <p>Below is the same example as above but using IF() to return our own desired value</p>
+  <img id="myImg" style="width: 60%;" src="../static/images/gsheets/functions/if_and_basic.png"   class="clickable-pic">
+  <p>From this example you can experiment nesting as many AND(), OR() and IF() statements as you want. The principles all remain the same but the logic can become complicated quickly</p>
+
+</div><!--end of main text-->
+
+
+<div class="center">
+  <div class="pagination">
+  <a href="{{ url_for('pw_setup') }}">&laquo;</a>
+  <a href="#" class="active">1</a>
+  <a href="{{ url_for('pw_python_setup') }}">2</a>
+  <a href="{{ url_for('pw_flask_code') }}">3</a>
+  <a href="{{ url_for('pw_css_code') }}">4</a>
+  <a href="{{ url_for('pw_run_locally') }}">5</a>
+  <a href="{{ url_for('pw_hosting') }}">6</a>
+  <a href="{{ url_for('pw_python_setup') }}">&raquo;</a>
+  </div>
+</div>
+{% endblock middle_column %}   
+
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  
+

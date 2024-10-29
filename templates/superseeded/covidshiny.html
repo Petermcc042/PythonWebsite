@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="pandoc" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+        
+        <title>Showcase</title>
+                
+        <!--my custom css files-->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/mynavbar.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/genericpage.css')}}" type="text/css">
+
+        <!-- icons -->
+        <link href="../static/site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+        <link href="../static/site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+        <!-- inline code highlighting -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/night-owl.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <!-- fonts - standard -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    
+        <link rel="icon" type="image/png" href="glasses.ico"/>       
+    </head>
+
+    <header>
+        <div class="navbar">
+            <a href="{{ url_for('home') }}" class="logo"><span class="fas fa-home"></span>  Home</a>
+            <a href="{{ url_for('cv') }}" class="logo"><span class="fas fa-address-card"></span>  CV</a>
+            <div class="dropdown">
+                <button class="dropbtn">Projects  <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <div class="header"><h2>Menu</h2></div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Mixed Projects</h3>
+                            <a href="{{ url_for('insurance') }}"><span class="fas fa-book-open"></span>  Insurance Analysis <i>( SQL/R )</i></a>
+                            <a href="{{ url_for('covidanalysis') }}"><span class="fas fa-book-open"></span>  Covid Statistics <i>( SQL/Tableau )</i></a>
+                            <a href="{{ url_for('flaskportweb') }}"><span class="fas fa-book-open"></span>  Flask Portfolio Website <i>( Python/HTML/CSS )</i></a>
+                            <a href="{{ url_for('regpredweb') }}"><span class="fas fa-book-open"></span>  Regression Prediction <i>( Python/HTML/CSS )</i></a>
+                        </div>
+                        <div class="column">
+                            <h3>Coding Algorithms</h3>
+                            <a href="{{ url_for('decisiontreetut') }}"><span class="fas fa-book-open"></span>  Coding a Decision Tree <i>( Python )</i></a>
+                            <a href="{{ url_for('knearest') }}"><span class="fas fa-book-open"></span>  Coding a K-Nearest Algorithm <i>( Python )</i></a>
+                            <a href="#"> coming soon</a>
+                            <a href="#"> coming soon</a>
+                        </div>
+                        <div class="column">
+                            <h3>Data Science Projects</h3>
+                            <a href="{{ url_for('walmartanalysis') }}"><span class="fas fa-book-open"></span>  Walmart Data Analysis<i>( R )</i></a>
+                            <a href="{{ url_for('custclust') }}"><span class="fas fa-book-open"></span>  KMeans Customer Segregation<i>( Python )</i></a>
+                            <a href="{{ url_for('churn') }}"><span class="fas fa-book-open"></span>  Churn Analysis <i>( R )</i></a>
+                            <a href="{{ url_for('covidshiny') }}"><span class="fas fa-book-open"></span>  Covid Visualisations using Shiny<i>( R )</i></a>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="navbar-right">
+                <a href="https://github.com/Petermcc042" target="_blank"><span class="fa fa fa fa-github"></span></a>
+                <a href="https://www.linkedin.com/in/petermcclintock/" target="_blank"><span class="fa fa fa fa-linkedin"></span></a>
+                <a href="https://www.instagram.com/pedromcc17/" target="_blank"><span class="fa fa fa fa-instagram"></span></a>
+            </div>
+        </div>
+
+
+      <!-- dynamically load mathjax for compatibility with self-contained -->
+      <script>
+      (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+      </script>
+
+      <script>
+          // When the user scrolls the page, execute myFunction
+          window.onscroll = function() {myFunction()};
+          
+          // Get the navbar
+          var navbar = document.getElementById("navbar");
+          
+          // Get the offset position of the navbar
+          var sticky = navbar.offsetTop;
+          
+          // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+          function myFunction() {
+              if (window.pageYOffset >= sticky) { navbar.classList.add("sticky") } 
+              else { navbar.classList.remove("sticky"); }
+            }
+        </script>
+
+
+    </header>
+    
+    <body>
+        <div class="main-container">
+            
+            <head>
+                <title>Covid R Shiny Dashboard Project</title>
+            </head>
+            
+            <div>
+                <div id="header">
+                    <h1 class="title toc-ignore"><strong>UK Gov Covid Data visualisations Project</strong></h1>
+                </div>
+                
+                <div id="Name" class="section level1">
+                    <h4>Peter McClintock</h4>
+                    <h4>25/11/2021</h4>
+                </div>
+
+                <div id='overview' class="section level1">
+                    <h1>Overview</h1>
+                    <ul>
+                        <li>This project was testing out basic visualisations using R and Shiny. I wanted to challenge myself to begin creating end visualisations for my data 
+                            analysis projects</li>
+                        <li>The language used for the project was solely R which only required additional learning of the reactive programming necessary for Shiny</li>
+                    </ul>
+                    <p></p>
+                </div>
+
+                <hr>
+            
+                <div id="data" class="section level1">
+                <h1>Data</h1>
+                <p>
+                    The data was sourced from the <a href="https://coronavirus.data.gov.uk/" target="_blank">UK Covid Data website</a> which gives an in depth breakdown of the 
+                    daily Coronavirus figures from the begining of the pandemic. The data I worked with was downloaded as of the 23/11/2021.
+                </p>
+                <p>
+                    As I was focused on producing the visualisations and learning Shiny I did not commit to a deep dive into the data picking only the main fields of the four 
+                    downloaded datasets. Each of the datasets used can also be downloaded from my <a href="https://github.com/Petermcc042/CovidShinyApp" target="_blank">github</a>, 
+                    along with the code used to create the app.
+                </p>
+                </div>
+
+                <hr>
+                
+                <div id="r-analysis" class="section level2">
+                <h2>Visualisations</h2>
+                <ul>
+                    <li>
+                        Firstly, I wanted to create an interactive plot of the four main variables, number of cases, deaths, vaccinations, and hospital admissions per day. For 
+                        this I merged the four variables into one dataframe based on the longest time frame. As such the vaccination level at start comes in as NA values. From 
+                        this I used the plotly package due to its benefits of easy interactivity. For styling I added a second axis, advanced period selection features and colour.
+                    </li>
+                    <li>
+                        The second part of the dashboard is a closer look each series and is calculated as the input changes selection. The first plot is a simple boxplot made with 
+                        ggplot. Secondly, to help add to the box plot is a simple dataframe of summary statistics. The final plot is a histogram showing the distribution of the 
+                        selected data. With it I included a numeric slider to control the number of bins.
+                    </li>
+                </ul>
+                </div>
+
+                <hr>
+                
+                <div id="shiny" class="section level1">
+                    <h1>Shiny</h1>
+                    <p>
+                        Working with Shiny proved more difficult than I would have initially hoped coming from a well established background in R. This is due to the use of 
+                        reactive data which requires additional learning in order to function. However, even with this basic first dive into Shiny I believe I have managed to 
+                        produce a professional looking dashboard with some basic information. As such I have hope for future projects and what they can yield.
+                    </p>
+                </div>
+
+                <hr>
+
+                <h1>The Dashboard</h1>
+            
+            </div>
+
+        </div>
+        
+        <p><iframe width = "100%" height="1400" frameborder="no" src="https://pmcc042.shinyapps.io/covid"></iframe></p>
+  
+
+    </body>
+
+    
+
+
+</html>
+
+
+

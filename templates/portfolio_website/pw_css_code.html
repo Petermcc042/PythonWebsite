@@ -1,0 +1,100 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('pw_setup') }}"><b> Portfolio Website</b> </a>
+<a href="{{ url_for('pw_setup') }}"> Setup</a>
+<a href="{{ url_for('pw_python_setup') }}"> Python Setup</a>
+<a href="{{ url_for('pw_flask_code') }}"> Flask Code</a>
+<a href="{{ url_for('pw_css_code') }}" class="active"> CSS Code</a>
+<a href="{{ url_for('pw_run_locally') }}"> Run Locally</a>
+<a href="{{ url_for('pw_hosting') }}"> Hosting / Git & Heroku</a>
+{% endblock left_column %}   
+      
+{% block middle_column %}   
+<div class="main base-tutorial">
+  <h2>CSS File</h2>
+  <p>
+    The last bit of code that we need to write is the CSS file. The code below is a very basic css file to make the example look a little neater. Create a file
+    in your static folder named generic.css. We will link to this from our navbar.html file.
+  </p>
+
+  <pre><code class="language-css">
+    /* Formats all text */
+    * {
+      font-family:verdana;
+    }
+
+    /* Formats the first header */
+    h1 {
+      font-size: 25px;
+    }
+
+    /* Add a black background color to the top navigation */
+    .topnav {
+        background-color: #333;
+        overflow: hidden;
+      }
+      
+      /* Style the links inside the navigation bar */
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      /* Change the color of links on hover */
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      
+      /* Add a color to the active/current link */
+      .topnav a.active {
+        background-color: #3361c4;
+        color: white;
+      }
+  </code></pre>
+
+  <p style="font-weight: bold;">IMPORTANT: ADD THIS REFERENCE LINK TO THE NAVBAR.HTML FILE FOR THE CSS</p>
+  <p>We add a standard reference to a css to make the page less sad looking. Again we use Flasks naming convention with the url_for which allows it to link to our 
+    filepath.
+  </p>
+  
+  <pre><code class="language-html">
+    &lt;link rel="stylesheet" href="&lcub;&lcub;url_for('static', filename='generic.css')&rcub;&rcub;" type="text/css"&gt;
+  </code></pre>   
+
+  <h2>Coding Finished!!</h2>
+  <p>
+    CONGRATULATIONS! That is all the coding needed to give a good demonstration. Don't worry if you are looking for more there are millions of ways to customise your page further. 
+    All it takes is some quick google searches to really start diving deeper!
+  </p>
+
+  <p>
+    On the next page you will see how to run the code locally, before moving on to website hosting.
+  </p>
+
+</div> <!--end of main-->
+
+
+<div class="center">
+  <div class="pagination">
+    <a href="{{ url_for('pw_flask_code') }}">&laquo;</a>
+    <a href="{{ url_for('pw_setup') }}">1</a>
+    <a href="{{ url_for('pw_python_setup') }}">2</a>
+    <a href="{{ url_for('pw_flask_code') }}">3</a>
+    <a href="{{ url_for('pw_css_code') }}" class="active">4</a>
+    <a href="{{ url_for('pw_run_locally') }}">5</a>
+    <a href="{{ url_for('pw_hosting') }}">6</a>
+    <a href="{{ url_for('pw_run_locally') }}">&raquo;</a>
+  </div>
+</div>
+{% endblock middle_column %}   
+      
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  
+

@@ -1,0 +1,7 @@
+.notebox {
+    background-color: aliceblue; 
+    border: 5px solid rgb(0, 0, 46); 
+    padding-left: 100px; 
+    padding-right: 100px; 
+    margin: 50px; 
+}

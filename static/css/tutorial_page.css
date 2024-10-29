@@ -1,0 +1,164 @@
+/*--------------------- This ensures with padding everything stays within 100% of screen ---------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+
+/*--------------------- COLUMN CONTAINER ---------------------------*/
+.flex-container-row.base-tutorial {
+  width: 100%;
+  min-height: 900px;
+}
+
+/*--------------------- Main Middle Content ---------------------------*/
+.main.base-tutorial {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 150px;
+}
+
+
+/*--------------------- Right Column ---------------------------*/
+.flex-container-column.column-right.base-tutorial{
+  width: 10%;
+  background-color: #B8E0D9;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+.flex-container-column.column-right.base-tutorial a {
+  padding: 5px 8px 5px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color: #111;
+  display: block;
+}
+
+.flex-container-column.column-right.base-tutorial a:hover {
+  color: white;
+  background-color: #00C7A2;
+}
+
+
+
+/*--------------------- Left Column ---------------------------*/
+
+.flex-container-column.column-left.base-tutorial {
+  width: 20%;
+  background-color: #B8E0D9;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  
+}
+
+.flex-container-column.column-left.base-tutorial a {
+  padding: 5px 8px 5px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color: #111;
+  display: block;
+}
+
+.flex-container-column.column-left.base-tutorial a.active {
+  background-color: #EBA236;
+  color: white;
+}
+
+.flex-container-column.column-left.base-tutorial a:hover {
+  color: #f1f1f1;
+  background-color: #00C7A2;
+}
+
+.flex-container-column.column-left.base-tutorial ul {
+  position: fixed;
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+
+
+
+
+/*--------------------- Middle Column ---------------------------*/
+.flex-container-column.column-middle.base-tutorial {
+  width: 70%;
+  padding: 20px 20px 20px 20px;
+}
+
+
+
+
+/*--------------------------------- graphics ------------------------------------*/
+.clickable-pic {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  transition-delay: 0.8s;
+  border: 3px solid black;
+}
+
+.clickable-pic:hover {
+  transform: scale(1.5);
+}
+
+
+.dash {
+  width: 1850px;
+}
+
+.center {
+  text-align: center;
+}
+
+
+/*--------------------------------- PAGINATION ------------------------------------*/
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #EBA236;
+  color: white;
+  border: 1px solid #EBA236;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+
+@media screen and (max-width: 900px) {
+  .flex-container-column.column-right.base-tutorial { display:none; }
+  .flex-container-column.column-middle.base-tutorial {width: 75%;}
+}
+@media screen and (max-width: 600px) { 
+  .flex-container-column.column-left.base-tutorial { width: 100%; }
+  .flex-container-column.column-left.base-tutorial ul { position: static; }
+
+  .flex-container-column.column-middle.base-tutorial {width: 100%;}
+  .main.base-tutorial { width: 95%;   }
+}
+
+
+
+
+
+
+
+
+

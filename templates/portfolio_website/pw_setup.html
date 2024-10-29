@@ -1,0 +1,68 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('pw_setup') }}"><b> Portfolio Website</b> </a>
+<a href="{{ url_for('pw_setup') }}" class="active"> Setup</a>
+<a href="{{ url_for('pw_python_setup') }}"> Python Setup</a>
+<a href="{{ url_for('pw_flask_code') }}"> Flask Code</a>
+<a href="{{ url_for('pw_css_code') }}"> CSS Code</a>
+<a href="{{ url_for('pw_run_locally') }}"> Run Locally</a>
+<a href="{{ url_for('pw_hosting') }}"> Hosting / Git & Heroku</a>
+{% endblock left_column %}   
+      
+{% block middle_column %}   
+<div class="main base-tutorial">
+  <h1><strong>Create a Portfolio Website using Flask</strong></h1>
+  <h4>Peter McClintock</h4>
+  <h4>12/10/2021</h4>
+  <br>
+  <h1>Overview</h1>
+  <ul>
+    <li>The goal of this tutorial is to create a basic portfolio website using Flask</li>
+    <li>Languages used in this project are, Python, HTML, and CSS</li>
+    <li>Other key skills are git integration and deploying websites using Heroku</li>
+  </ul>
+
+  <h1>The End Result</h1>
+  <p>Lets skip to the good part, a basic look at how it could look!</p>
+  <img id="myImg" src="../static/images/webpage-test.PNG"   class="clickable-pic">
+  <p>
+    Very basic I know! but the main goal of this tutorial is to setup a functioning page more so than a beautiful resume.
+  </p>
+  <p>
+    If you want to style it you can, using <a href="https://www.w3schools.com/default.asp" target="_blank" rel="noopener noreferrer">w3schools</a> 
+    and their how to guides. I am a big fan of how their guides are laid out and structured. They also provide a live editor so you can play about and really see 
+    the nitty gritty of how parts work.
+  </p>
+
+  <h1>Setup</h1>
+  <h2>Folder Setup</h2>
+  <p>
+    Create a main project folder, I have called mine (flask tutorial). Within this, create another folder that will contain the main files of the website, I have 
+    named mine mysite. For the sake of the tutorial it may be easier to follow this naming convention so as to not confuse directories. Within the mysite folder 
+    another two folders are created, static and templates.
+  </p>
+  <p>
+    The static folder will contain files such as css and images, while the templates folder will be used to store the actual html files for each page. This is default 
+    notation for flask.
+  </p>
+</div>
+
+
+<div class="center">
+  <div class="pagination">
+  <a href="{{ url_for('pw_setup') }}">&laquo;</a>
+  <a href="#" class="active">1</a>
+  <a href="{{ url_for('pw_python_setup') }}">2</a>
+  <a href="{{ url_for('pw_flask_code') }}">3</a>
+  <a href="{{ url_for('pw_css_code') }}">4</a>
+  <a href="{{ url_for('pw_run_locally') }}">5</a>
+  <a href="{{ url_for('pw_hosting') }}">6</a>
+  <a href="{{ url_for('pw_python_setup') }}">&raquo;</a>
+  </div>
+</div>
+{% endblock middle_column %}   
+      
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  

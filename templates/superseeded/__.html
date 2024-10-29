@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="pandoc" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+        
+        <title>CovidProject</title>
+                
+        <!--my custom css files-->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/mynavbar.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/genericpage.css')}}" type="text/css">
+
+        <!-- icons -->
+        <link href="../static/site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+        <link href="../static/site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+        <!-- inline code highlighting -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/night-owl.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <!-- fonts - standard -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    
+        <link rel="icon" type="image/png" href="glasses.ico"/>       
+    </head>
+
+    <header>
+        <div class="navbar">
+            <a href="{{ url_for('home') }}" class="logo"><span class="fas fa-home"></span>  Home</a>
+            <a href="{{ url_for('cv') }}" class="logo"><span class="fas fa-address-card"></span>  CV</a>
+            <div class="dropdown">
+                <button class="dropbtn">Projects  <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <div class="header"><h2>Menu</h2></div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Mixed Projects</h3>
+                            <a href="{{ url_for('insurance') }}"><span class="fas fa-book-open"></span>  Insurance Analysis <i>( SQL/R )</i></a>
+                            <a href="{{ url_for('covidanalysis') }}"><span class="fas fa-book-open"></span>  Covid Statistics <i>( SQL/Tableau )</i></a>
+                            <a href="{{ url_for('flaskportweb') }}"><span class="fas fa-book-open"></span>  Flask Portfolio Website <i>( Python/HTML/CSS )</i></a>
+                            <a href="{{ url_for('regpredweb') }}"><span class="fas fa-book-open"></span>  Regression Prediction <i>( Python/HTML/CSS )</i></a>
+                        </div>
+                        <div class="column">
+                            <h3>Coding Algorithms</h3>
+                            <a href="{{ url_for('decisiontreetut') }}"><span class="fas fa-book-open"></span>  Coding a Decision Tree <i>( Python )</i></a>
+                            <a href="{{ url_for('knearest') }}"><span class="fas fa-book-open"></span>  Coding a K-Nearest Algorithm <i>( Python )</i></a>
+                            <a href="#"> coming soon</a>
+                            <a href="#"> coming soon</a>
+                        </div>
+                        <div class="column">
+                            <h3>Data Science Projects</h3>
+                            <a href="{{ url_for('walmartanalysis') }}"><span class="fas fa-book-open"></span>  Walmart Data Analysis<i>( R )</i></a>
+                            <a href="{{ url_for('custclust') }}"><span class="fas fa-book-open"></span>  KMeans Customer Segregation<i>( Python )</i></a>
+                            <a href="{{ url_for('churn') }}"><span class="fas fa-book-open"></span>  Churn Analysis <i>( R )</i></a>
+                            <a href="{{ url_for('covidshiny') }}"><span class="fas fa-book-open"></span>  Covid Visualisations using Shiny<i>( R )</i></a>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="navbar-right">
+                <a href="https://github.com/Petermcc042" target="_blank"><span class="fa fa fa fa-github"></span></a>
+                <a href="https://www.linkedin.com/in/petermcclintock/" target="_blank"><span class="fa fa fa fa-linkedin"></span></a>
+                <a href="https://www.instagram.com/pedromcc17/" target="_blank"><span class="fa fa fa fa-instagram"></span></a>
+            </div>
+        </div>
+
+
+      <!-- dynamically load mathjax for compatibility with self-contained -->
+      <script>
+      (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        document.getElementsByTagName("head")[0].appendChild(script);
+        })();
+      </script>
+
+      <script>
+          // When the user scrolls the page, execute myFunction
+          window.onscroll = function() {myFunction()};
+          
+          // Get the navbar
+          var navbar = document.getElementById("navbar");
+          
+          // Get the offset position of the navbar
+          var sticky = navbar.offsetTop;
+          
+          // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+          function myFunction() {
+              if (window.pageYOffset >= sticky) { navbar.classList.add("sticky") } 
+              else { navbar.classList.remove("sticky"); }
+            }
+        </script>
+
+
+    </header>
+
+    <body>
+
+      <div class="main-container">
+        <div>
+          <div id="header">
+            <h1 class="title toc-ignore"><strong>Covid Data Analysis Project</strong></h1>
+          </div>
+          
+          <div id="Name" class="section level1">
+            <h4>Peter McClintock</h4>
+            <h4>22/08/2021</h4>
+          </div>
+        
+          <div id="data" class="section level1">
+            <h1>Data</h1>
+            <p>The data was sourced from OurWorldInData which provides up to date COVID data ranging from vaccination amounts to death counts. From the one file I created two separate excel files and imported them into Microsoft SQL Server which is what I used for the data manipulation.</p>
+          </div>
+          
+          <div id="tableau-data" class="section level2">
+            <h2>Tableau Data</h2>
+            <ul>
+              <li>Query 1 looks at the percentage of people who died compared to the total number of cases. It shows the likelihood of death upon catching the virus on average. To calculate the totals the new_deaths field had to be converted from a nvarchar to an int. The data also includes not just countries but continent totals. However, I wanted to look at the breakdown from countries included. That is why the where continent is null condition is included.</li>
+              <li>Query 2 follows a similar vein but congregates the countries into their continents and looks at total death rates per continent.</li><li>Query 3 takes the highest infection count of each country and calculates the worst infection rate per country.</li>
+              <li>Finally, query 4 takes the same data but includes the data as a time series.</li>
+            </ul>
+          </div>
+          
+          <div id="tableau-public" class="section level1">
+            <h1>Tableau Public</h1>
+            <p>Due to Tableau public’s lack of ability to connect to databases in sql, I exported the tables from the queries to excel and imported it into Tableau through excel. From this I created a series of graphics and the below dashboard shows the final product.</p>
+          </div>
+        
+
+        
+        
+        </div>
+        
+      </div>
+
+      <p>
+        <iframe width = "100%" height="1400" frameborder="no" src="https://public.tableau.com/views/CovidDashboardProject_16296348960110/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"></iframe>
+      </p>
+
+
+    </body>
+</html>
+    
+

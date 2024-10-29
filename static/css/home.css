@@ -1,0 +1,46 @@
+/*--------------------------------- BODY ------------------------------------*/
+p { font-size: 25px; }
+
+h1 { text-align: center; }
+
+
+
+#band2 {
+  background-color: #9AEBA3;
+  height: auto;
+}
+
+
+/*--------------------- This ensures with padding everything stays within 100% of screen ---------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+/*--------------------- COLUMN CONTAINER ---------------------------*/
+.flex-container-row.home {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*---------------------  Column ---------------------------*/
+
+.flex-container-column.home {
+  width: 375px;
+  height: 300px;
+  border-color: black;
+}
+
+.flex-container-column.home a {
+  text-decoration: none;
+  font-size: 17px;
+  color: #111;
+  display: block;
+}

@@ -1,0 +1,126 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('pw_setup') }}"><b> Portfolio Website</b> </a>
+<a href="{{ url_for('pw_setup') }}"> Setup</a>
+<a href="{{ url_for('pw_python_setup') }}"> Python Setup</a>
+<a href="{{ url_for('pw_flask_code') }}"> Flask Code</a>
+<a href="{{ url_for('pw_css_code') }}"> CSS Code</a>
+<a href="{{ url_for('pw_run_locally') }}"> Run Locally</a>
+<a href="{{ url_for('pw_hosting') }}" class="active"> Hosting / Git & Heroku</a>
+{% endblock left_column %}   
+      
+{% block middle_column %}   
+<div class="main base-tutorial">
+  <h1>Ready for Deployment</h1>
+  <p>While not entirely necessary at this point sometimes it feels good to know the full pipeline through to owning your own domain. I would suggest working a lot more 
+    on the quality of your website filling out each section and then potentially coming back. The next section we will use Heroku to host our website for free. However,
+    the heroku cli requires git is installed on your computer.
+  </p>
+
+  <h2>Setting up Git</h2>
+  <p>GIT is a version control system that is widely used. It is software that tracks changes in sets of files on your computer. Once set-up we will use it to track  
+    our files for the website and then send those files to heroku. Installing GIT is fairly straightforward and there is a lot of community help if you get stuck.
+  </p>
+  <p>Once GIT is installed you must now download the Heroku CLI. Again heroku provide a great tutorial on how to download their CLI. Once installed you will need to 
+    create a free heroku account to launch your app (the webpage). The heroku tutorial really takes you through this process very well and explains how to login in 
+    on your local machine. Once you believe you have both GIT and the CLI installed you can check Heroku using 
+  </p>
+  <pre><code class="language-python">C:\your_standard_file_path> heroku --version</code></pre>
+  <p>This tutorial is using heroku/7.53.0. Given that you are already logged in to the heroku web page you can run the code below
+     to launch a new window in your default browser which will allow you to login locally.</p>
+  <pre><code class="language-python">C:\your_standard_file_path> heroku login</code></pre>
+  <p>On your heroku dashboard page there will be the option to create a new app follow this through with whatever domain name you prefer. Heroku will automatically
+    check to make sure there are not duplicate names. Now we can head back to the command line. 
+  </p>
+  <pre><code class="language-python">C:\your_standard_file_path> heroku apps</code></pre>
+  <p>Heroku apps allows us to see a list of what apps we currently have registered with heroku. Your new app name should appear hear.</p>
+  <p>As mentioned we will send our files to Heroku through GIT. However, before we can send our current files Heroku requires three more small files.</p>
+
+  <h2>Heroku Requirements</h2>
+  <p>Heroku requires three files for it to be able to run flask.</p>
+  <ol>
+    <li>Python packages list</li>
+    <li>A Web Server Gateway Interface - gunicorn</li>
+    <li>The version of python you are running - 3.9.7 for me</li>
+  </ol>
+
+  <h3>Step 1 - Requirements.txt</h3>
+  <p>
+    These files are all easy to get so don't panic if you don't understand the why. The requirements file is a text file containing the list of packages we have used 
+    to run the code. Heroku needs this to know what packages to make available for your app.
+  </p>
+  <p>
+    To get the list of packages we are using in the virtual environment we can run the code below in the terminal. As always check the file paths.
+  </p>
+  <pre><code class="language-python">C:\your_standard_file_path\flask tutorial> virtual\Scripts\pip freeze > requirements.txt</code></pre>
+  <p>
+    We access the virtual folder and run pip freeze but instead of printing the packages we store them in a requirements text file. Move this file into the mysite
+    folder. Step 1 complete!
+  </p>
+
+  <h3>Step 2 - Procfile</h3>
+  <p>In your mysite folder we now create a Procfile. Right click create a text file and name it Procfile. Make sure in the file explorer settings you enable 
+    file name extensions and Hidden items. Warning: do not edit hidden items they are just so you can see that they have been created but are hidden for a reason!
+  </p>
+  <p><img src="../static/images/fileexplorersetting.PNG" width="600" class="center"></p>
+  <p>In the text file we write the following line. <code>web: gunicorn script:app</code>. This lets Heroku know what web server to use to run the application, and then 
+  we point heroku at the name of our instance, which in the script.py file we set as 'app'. We enable extensions as it allows us to take any off the end of the text file.
+  You may get a warning however this is correct it should simply be Procfile with no extension.</p>
+
+  <h3>Step 3 - Runtime</h3>
+  <p>The third file simply requires the version of python that is currenlty being used. As checked from the start this tutorial is using python 3.9.7. As such we create a
+    .txt file named runtime with <code>python-3.9.7</code> inside it. All three of these files must be saved to the website folder (mysite), not the project folder. At the
+    time of writing this tutorial Heroku accepted multiple versions of python. To double check search for heroku supported python runtimes to ensure your version of python is
+    compatible.
+  </p>
+  <p>Great! now it is time to send the files to Heroku!</p>
+  <h2>Pushing the Files</h2>
+  <p>
+    The last stage of the process involves pushing the files to Heroku. As mentioned we use git to help with this process. To begin with initialise a git repository in the 
+    mysite folder using the command below in the terminal.
+  </p>
+  <pre><code class="language-python">C:\your_standard_file_path\flask tutorial\mysite> git init</code></pre>
+  <p>
+    As long as your hidden items is activated you will be able to see the newly created folder and delete it if you should wish. The next four commands are repeated every time
+     you wish to make changes to your code and so I will put them in one block. Again each of these are run in the terminal.
+  </p>
+  <pre><code class="language-python">C:\your_standard_file_path\flask tutorial\mysite> git add .</code></pre>
+  <pre><code class="language-python">C:\your_standard_file_path\flask tutorial\mysite> git commit -m "commit comment"</code></pre>
+  <pre><code class="language-python">C:\your_standard_file_path\flask tutorial\mysite> heroku git:remote --app app_name_insert</code></pre>
+  <pre><code class="language-python">C:\your_standard_file_path\flask tutorial\mysite> git push heroku master</code></pre>
+  <p>
+    The first line means add all files that have changed from the git folder, meaning it adds our changes. The second line submits these files with a comment. For example, if 
+    you change css styling maybe that will be the comment. For your first commit, the comment may be as simple as first commmit. It is simply to keep track of commits. 
+    The third line specifies which app you wish to send these changes to. If this is your first app this stage is uneccessary but it is good practice. The final line 
+    sends the changes to Heroku for it to update.
+  </p>
+  <p>
+    In the future when changes are made locally, repeat the four steps above and it will update the code on Heroku.
+  </p>
+
+  <h1>The End</h1>
+  <p>Congratulations if you made it to the end of the tutorial and have managed to get a page hosted on Heroku. Hopefully you managed to learn a lot and can take this 
+    basic framework and expand it. Good Luck.
+  </p>
+
+
+</div> <!--end of main-->
+
+<div class="center">
+  <div class="pagination">
+  <a href="{{ url_for('pw_run_locally') }}">&laquo;</a>
+  <a href="{{ url_for('pw_setup') }}">1</a>
+  <a href="{{ url_for('pw_python_setup') }}">2</a>
+  <a href="{{ url_for('pw_flask_code') }}">3</a>
+  <a href="{{ url_for('pw_css_code') }}">4</a>
+  <a href="{{ url_for('pw_run_locally') }}">5</a>
+  <a href="{{ url_for('pw_hosting') }}" class="active">6</a>
+  <a href="{{ url_for('pw_hosting') }}">&raquo;</a>
+  </div>
+</div>
+{% endblock middle_column %}   
+      
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  

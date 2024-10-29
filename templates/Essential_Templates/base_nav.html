@@ -1,0 +1,44 @@
+{% extends "Essential_Templates/base_head.html" %}
+{% block base_nav %}
+
+<nav>
+    <div class="flex-container-row navbar">
+        <a href="{{ url_for('home') }}" class="logo"><span class="fas fa-home"></span> Home</a>
+        <!--link to tutorial menu-->
+        <a href="{{ url_for('tutorials_list') }}"><span class="fas fa-book-open"></span> Projects</a>
+        <!--Begining of List Menu-->
+        <div class="navbar-right" id="hideIcons">
+            <a href="{{ url_for('cv') }}" class="logo"><span class="fas fa-address-card"></span> About</a>
+            <a href="https://github.com/Petermcc042" target="_blank"><span class="fa fa fa fa-github"></span></a>
+            <a href="https://www.linkedin.com/in/petermcclintock/" target="_blank"><span class="fa fa fa fa-linkedin"></span></a>
+            <a href="https://www.instagram.com/pedromcc17/" target="_blank"><span class="fa fa fa fa-instagram"></span></a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+        </div>
+    </div>
+</nav>
+<div class="hiddenIcons" id="hiddenNavBar">
+    <div class="flex-container-row navbar" >
+        <a href="{{ url_for('cv') }}" class="logo"><span class="fas fa-address-card"></span> About</a>
+        <a href="https://github.com/Petermcc042" target="_blank"><span class="fa fa fa fa-github"></span></a>
+        <a href="https://www.linkedin.com/in/petermcclintock/" target="_blank"><span class="fa fa fa fa-linkedin"></span></a>
+        <a href="https://www.instagram.com/pedromcc17/" target="_blank"><span class="fa fa fa fa-instagram"></span></a>
+    </div>
+</div>
+
+<div class="main-scrollable">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("hiddenNavBar");
+      if (x.className === "hiddenIcons") {
+        x.className += " responsive";
+      } else {
+        x.className = "hiddenIcons";
+      }
+    }
+</script>
+
+{% endblock base_nav%}

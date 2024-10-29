@@ -1,0 +1,38 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="#Title"><b> COVID Visualisations Using Tableau Public</b> </a>
+<a href="#data">Data</a>
+<a href="#tableau-data">Tableau Data</a>
+<a href="#tableau-public">Tableau Public</a>
+{% endblock left_column %}   
+      
+{% block middle_column %}   
+<div class="main base-tutorial">
+  <h1><strong>Covid Data Analysis Project</strong></h1>
+  <h4>Peter McClintock</h4>
+  <h4>22/08/2021</h4>
+
+  <h1 id="data">Data</h1>
+  <p>The data was sourced from OurWorldInData which provides up to date COVID data ranging from vaccination amounts to death counts. From the one file I created two separate excel files and imported them into Microsoft SQL Server which is what I used for the data manipulation.</p>
+
+  <h2 id="tableau-data">Tableau Data</h2>
+  <ul>
+    <li>Query 1 looks at the percentage of people who died compared to the total number of cases. It shows the likelihood of death upon catching the virus on average. To calculate the totals the new_deaths field had to be converted from a nvarchar to an int. The data also includes not just countries but continent totals. However, I wanted to look at the breakdown from countries included. That is why the where continent is null condition is included.</li>
+    <li>Query 2 follows a similar vein but congregates the countries into their continents and looks at total death rates per continent.</li><li>Query 3 takes the highest infection count of each country and calculates the worst infection rate per country.</li>
+    <li>Finally, query 4 takes the same data but includes the data as a time series.</li>
+  </ul>
+
+  <h1 id="tableau-public">Tableau Public</h1>
+  <p>Due to Tableau public’s lack of ability to connect to databases in sql, I exported the tables from the queries to excel and imported it into Tableau through excel. From this I created a series of graphics and the below dashboard shows the final product.</p>
+
+</div><!--end of main text-->
+
+{% endblock middle_column %}   
+      
+{% block right_column %}      
+{% endblock right_column %}  
+
+{% block open_section %}  
+<iframe width = "100%" height="1400"  background-color= #00473A src="https://public.tableau.com/views/CovidDashboardProject_16296348960110/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"></iframe>   
+{% endblock open_section %} 
+

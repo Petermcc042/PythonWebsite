@@ -1,0 +1,25 @@
+{% extends "gsheets/base_excel_tutorial.html" %}
+
+
+{% block middle_column %}   
+<div class="main">
+
+  <h1 id="if">IF()</h1>
+  <p>The if function is a common function that allows you to make logical comparisons between values and create new values based on corresponding cells</p>
+  <p>The function takes in a boolean expression as the first argument and based on whether this is TRUE or FALSE returns one of two values. Below is an example</p>
+  <p>(Column C contains the if statement in column B with an = at the front)</p>
+  <img id="myImg" style="width: 60%;" src="../static/images/gsheets/functions/if_1.png"   class="clickable-pic">
+  <p>The if function allows you to quickly sort data based on a condition. A more real world example is shown below</p>
+  <img id="myImg" style="width: 60%;" src="../static/images/gsheets/functions/if_2.png"   class="clickable-pic">
+  <p>The first section of the expression allows for many different operators to produce a TRUE or FALSE value</p>
+  <p>Below is a table of the different comparison operators and how they are used</p>
+  <img id="myImg" style="width: 60%;" src="../static/images/gsheets/functions/comparison_operators.png"   class="clickable-pic">
+
+</div><!--end of main text-->
+{% endblock middle_column %}   
+
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  
+

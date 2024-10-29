@@ -1,0 +1,25 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('flaskMarkdown') }}"><b> Using Markdown with Flask</b> </a>
+<a href="#summary">Summary</a>
+<a href="#markdownFiles">Markdown Files</a>
+<a href="#convertMd">Read Markdown and Translate</a>
+<a href="#pass-variable">Pass HTML as Variable</a>
+<a href="#include-variable">Include Variable In HTML</a>
+{% endblock left_column %}  
+
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a> 
+{% block middle_column %}   
+<div class="main base-tutorial">
+
+        <!-- Render the article content -->
+        {{ article_content | safe }}
+
+</div><!--end of main text-->
+{% endblock middle_column %}   
+
+{% block right_column %}  
+  
+{% endblock right_column %}  
+

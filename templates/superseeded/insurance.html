@@ -1,0 +1,161 @@
+{%extends "newnavbar.html"%}
+{%block content%}
+
+<div class="main-container">
+
+  <div class="sidenav">
+    <a href="#header">Title</a>
+    <a href="#overview">Overview</a>
+    <a href="#data-report">Data Report</a>
+    <a href="#data-report" style="font-size: 16px;"> - Report Overview</a>
+    <a href="#database-documentation" style="font-size: 16px;"> - Database documentation</a>
+    <a href="#insights-report" style="font-size: 16px;"> - Insights Report</a>
+  </div>
+
+  <div id="header">
+    <h1 class="title"><strong><b>Insights Analysis Into Insurance Data</b></strong></h1>
+  </div>
+
+  <div id="Name" class="section level1">
+    <h4>Peter McClintock</h4>
+    <h4>22/10/2020</h4>
+  </div>
+  
+  <div id="overview" class="section level1">
+    <h1>Overview</h1>
+    <p>This was one of the final projects in my first term of my masters degree. In this project I use SQL and R to work with three seperate data sets to produce some insights.</p>
+  </div>
+  <div id="data-report" class="section level1">
+    <h1>Data Report</h1>
+    <div id="report-overview" class="section level2">
+      <h2>Report Overview</h2>
+      <p>For the report I primarily did the data cleaning and joining in Access using SQL. After creating my final ABT I did some summary queries using SQL. I then took the final ABT to R where I completed some more analysis. The report is structured as follows.</p>
+      <ul>
+        <li>Database Documentation
+          <ul>
+            <li>Data joining</li>
+            <li>Data Quality</li>
+            <li>Outliers</li>
+            <li>Final Data Summary</li>
+            <li>Additional Data for Future Analysis</li>
+          </ul></li>
+          <li>Insights Report
+            <ul>
+              <li>Title</li>
+              <li>Preferred Channel</li>
+              <li>Age</li>
+              <li>Age with Gender Splits</li>
+              <li>Motor Policy Claims</li>
+            </ul></li>
+          </ul>
+        </div>
+
+        <div id="database-documentation" class="section level2">
+          <h2>Database Documentation</h2>
+          <p>All data can be found at my Github or accessed using read.csv with the link below</p>
+          <div class="sourceCode"><p>https://raw.githubusercontent.com/Petermcc042/MastersYearData/main/AnalysisTable.csv<p></div>
+
+          <div id="data-joining" class="section level3">
+            <h3>Data Joining</h3>
+            <p>The four Datasets given were customers, Health_Policies, Travel_Policies, and Motor_Policies. They were joined to create a combined ABT using four separate left joins in SQL. These are run through three queries named CombineTravel, CombineTravelMotor, and CombineTravelMotorHealth</p>
+            <p>Each join builds upon the ABT created previously and is built using the Customers dataset as a base. Customers has one primary key, (CustomerID), and three foreign keys, (TravelID, MotorID, HealthID), that it uses to match and join. Each new ABT is created using its corresponding foreign key. CombineTravel is joined on TravelID, CombineTravelMotor is joined on MotorID, and CombineTravelMotorHealth is joined on HealthID.</p>
+            <p>A LEFT JOIN is used to preserve the number of customers in the primary data, and only match those who have policies with the company. The combined data set was called CombinedTable. After combining the tables there are the two forms of foreign key used for matching. As both are not needed, I removed the three ID columns which SQL created and left the three original ID columns. This was applied using the RemoveColumns query in SQL.</p>
+          </div>
+
+          <div id="data-quality" class="section level3">
+            <h3>Data Quality</h3>
+            <p>When examining the data in Access there did not appear to be any missing data for each of the policies, before or after the tables were joined. This was checked 
+              simply using a count query for some of the major fields. Some key points of the raw data are below.</p>
+            <ul>
+              <li>Customer ID: all had a unique identifier for both themselves and their respective policies</li>
+              <li>Title: Query created in SQL to unify the naming convention</li>
+              <li>Middle Initial: Removed to reduce clutter</li>
+              <li>Gender: Query created to unify naming convention</li>
+              <li>Preferred Channel of Communication: Query created to unify naming convention</li>
+            </ul>
+          </div>
+
+          <div id="improving-data-quality" class="section level3">
+            <h3>Improving Data Quality</h3>
+            <p>A point for improvement for the company would be improving the data input for simple fields. While the overall data did not have missing values which is very important, simple fields like gender, title, and Preferred Channel could be greatly improved. Whether this is at the input stage using data validation for customers or when compiling the data into the initial tables. This should lock the values to set values.</p>
+          </div>
+
+          <div id="data-manipulation" class="section level3">
+            <h3>Data Manipulation</h3>
+            <p>Much of the data manipulation was completed in Access using SQL. Queries were used that directly update the main ABT and as such should there be updates to the data at a later stage these queries can be ran again with the same data cleaning outcome. Fields like gender, title, preferred channel are all able to be replicated.</p>
+          </div>
+
+          <div id="outliers" class="section level3">
+            <h3>Outliers</h3>
+            <p>As well as the points above there were several outliers in the data. For Age there were three anomalies that were picked up after the AgeOutliers query was ran to check for any issues. This checked if individuals were outside the range of 18 – 100. Each value was fixed with separate update queries. Vanessa King, Georgina Clark, and Bilal King had ages of 180, -44, and 210, respectively. I have assumed small mistypes for each of these values and as such corrected them to 18, 44 and 21</p>
+            <p>The number of dependent kids field also included a possible error. There was a value of 40 included which has been assumed to be 4 and rectified.</p>
+          </div>
+          <div id="final-data-summary" class="section level3">
+            <h3>Final Data Summary</h3>
+            <p>The table has been corrected for problems in general data quality talked about above and has been corrected for the outliers mentioned. The last update made to create the finished ABT is a column was added to group the ages into three brackets, less than 30, 30 – 50, and 50+. The query used for this called CreateAnalysisTable. The final table is called AnalysisTable. Additional Data for Future Analysis</p>
+            <p>In the analysis section there were two extra points that would be useful and easy to implement in future data gathering. Both data fields could be set to a Boolean value and then used to give further insights. Firstly, the age subscription to the health plan seems unusual and I have proposed that it may be due to middle aged people paying for relative’s health care. As such a field such as receives health care with be beneficial. This could simply be set to 0 if no, and 1 if yes. This may then explain why there are significantly lower numbers in the older age not having a health policy. As well as this a value for provides health care with the same 0, 1, system could be useful. For example, instead of targeting the older generation with health care adds, you may need to target middle aged individuals who are more likely and receptive to paying for elderly relative’s healthcare. Another field that would be useful would be number of times travelled abroad in the last year. A simple integer value input could provide the company with valuable information on what individuals travel regularly without insurance and as such, should be targeted with Travel Policy.</p>
+          </div>
+        </div>
+
+        <div id="insights-report" class="section level2">
+          <h2>Insights Report</h2>
+
+          <div id="age-with-gender-splits" class="section level3">
+            <h3>Age with Gender Splits</h3>
+            <p>The gender splits are shown in the bar plots below with male as blue and female as red</p>
+            <p><img src="../static/images/unnamed-chunk-3-1.png" width="672" class="center"></p>
+          </div>
+
+          <div id="travel-policy" class="section level3">
+            <h3>Travel Policy</h3>
+            <ul>
+              <li>Clearly shown from the graph is that most customers that have the policy are aged below 30</li>
+              <li>This then declines as we move up the categories</li>
+              <li>This is understandable as it is likely the below 30 group that travels the most and as such will look for more insurance</li>
+              <li>Again, more data would be useful in a field with number of times travelled in the last year. See additional data section for more.</li>
+            </ul>
+            <p><img src="../static/images/unnamed-chunk-4-1.png" width="672" class="center"></p>
+          </div>
+
+          <div id="health-policy" class="section level3">
+            <h3>Health Policy</h3>
+            <ul>
+              <li>Again, in health policy we find a trend where it is those who are middle aged that are most worried about the policy.</li>
+              <li>Surprisingly, the middle bracket dominates the 50+ age group where possibly you would expect the older generation to pull the reverse</li>
+              <li>This may be because people become less worried about health once they reach retirement. Or another explanation may be that it is people who are 30-50 are paying for a plan not only for themselves but their elderly relatives.</li>
+              <li>This is something that additional data could shed more light on. See additional data section for more.</li>
+            </ul>
+            <p><img src="../static/images/unnamed-chunk-5-1.png" width="672" class="center"></p>
+          </div>
+
+          <div id="motor-policy" class="section level3">
+            <h3>Motor Policy</h3>
+            <ul>
+              <li>Motor policy follows an expected trend whereby there are a larger number of people that are middle aged that drive and look for protection than the other two age groups</li>
+              <li>Below 30 and 50+ hover at roughly the same level of 1000 people per group</li>
+            </ul>
+            <p><img src="../static/images/unnamed-chunk-6-1.png" width="672" class="center"></p>
+            <ul>
+              <li>As we can see the largest number of claims comes from the 30-50 age group. However, the majority of these are one claim events</li>
+              <li>Below-30 has a much smaller number but a higher number of repeat offenders, and the 50+ category has the only person that has made three claims</li>
+              <li>This does not tell the full story however, as it is the below 30 age group that is costing the company the most money. Shown on next page</li>
+            </ul>
+            <p><img src="../static/images/unnamed-chunk-7-1.png" width="672" class="center"></p>
+            <p><img src="../static/images/unnamed-chunk-8-1.png" width="672" class="center"></p>
+            <ul>
+              <li>As shown above the total cost per age group is drastically different.</li>
+              <li>At nearly a total of £205,000, the youngest age group is by far the most expensive of the group, with the group 30-50 costing around £133,000 despite having much more claims</li>
+              <li>This is highlighted clearer by the plot on the right where the average cost per head of those who have the Motor Policy is shown. The average cost of someone below 30 per claim comes in at £213 pounds. Well over double that of the next amount for 30-50-year olds at £88.</li>
+              <li>Advise for the company would be to adjust pricing plans if not already done, to incorporate this information. Making the cost of the Motor insurance a lot more expensive for younger people</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+{%endblock%}

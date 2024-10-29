@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="pandoc" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+                
+        <!--my custom css files-->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/mynavbar.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/tutorial_page.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/hero_threeProjects.css')}}" type="text/css">
+
+        <!-- icons -->
+        <link href="../static/site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+        <link href="../static/site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+        <!-- inline code highlighting -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/night-owl.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <!-- fonts - standard -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    
+        <link rel="icon" type="image/png" href="glasses.ico"/>
+    </head>
+    
+    <header>
+      <div class="navbar">
+        <a href="{{ url_for('home') }}" class="logo"><span class="fas fa-home"></span>  Home</a>
+        <!--link to tutorial menu-->
+        <a href="{{ url_for('tutorials_list') }}"><span class="fas fa-book-open"></span>   Tutorials 2</a>
+        <!--Begining of List Menu-->
+        <div class="navbar-right">
+          <a href="{{ url_for('cv') }}" class="logo"><span class="fas fa-address-card"></span>  About</a>
+          <a href="https://github.com/Petermcc042" target="_blank"><span class="fa fa fa fa-github"></span></a>
+          <a href="https://www.linkedin.com/in/petermcclintock/" target="_blank"><span class="fa fa fa fa-linkedin"></span></a>
+          <a href="https://www.instagram.com/pedromcc17/" target="_blank"><span class="fa fa fa fa-instagram"></span></a>
+        </div>
+      </div>
+    </header>
+
+    
+    <div class="row">
+      <div class="column left">
+        <a href="#Title"><b> Using Shiny to Build a Dashboard</b> </a>
+        <a href="#overview">Overview</a>
+        <a href="#data">Data</a>
+        <a href="#visualistaions">Visualisations</a>
+        <a href="#shiny">R - Shiny</a>
+        <a href="#dashboard">The Dashboard</a>
+      </div>
+      
+      <div class="column middle">
+        <div class="main">
+          <h1 id="Title"><strong>R Basics</strong></h1>
+          <h4>Peter McClintock</h4>
+          <h4>Last Updated: 29/10/2022</h4>
+
+          <h1 id="overview">Overview</h1>
+          <ul>
+            <li>These pages are here to give a very beginner introduction to R and its peculiarities</li>
+            <li>While R can be very intuitive and user friendly there are parts that are less so</li>
+            <li>Included are some of the main pain points I can think of and how I deal with them</li>
+          </ul>
+
+          <h1 id="data">Jump To</h1>
+
+
+
+        </div><!--end of main text-->
+      </div><!--end of middle column-->
+      
+      <div class="column right">
+        <a href="#"><b> Portfolio Website</b> </a>
+        <a href="#setup"> Setup</a>      </div>
+    </div>
+
+
+    <div class="footer">
+      <p>Author: Peter McClintock  </p>
+    </div>
+
+
+        
+  </body>
+
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+</html>

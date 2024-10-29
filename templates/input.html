@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python IDE with Autocomplete</title>
+    <style>
+        #editor {
+            width: 100%;
+            height: 90vh;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <!-- Monaco Editor loader script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+</head>
+<body>
+    <div id="editor"></div>
+    <script>
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.23.0/min/vs' }});
+        require(['vs/editor/editor.main'], function () {
+            var editor = monaco.editor.create(document.getElementById('editor'), {
+                value: '',
+                language: 'python',
+                automaticLayout: true,
+                theme: 'vs-dark'
+            });
+
+            var socket = io();
+
+            editor.onDidChangeModelContent(function (event) {
+                var position = editor.getPosition();
+                var code = editor.getValue();
+                socket.emit('get_suggestions', {
+                    code: code,
+                    line: position.lineNumber,
+                    column: position.column
+                });
+            });
+
+            socket.on('suggestions', function (suggestions) {
+                monaco.languages.registerCompletionItemProvider('python', {
+                    provideCompletionItems: function () {
+                        return { suggestions: suggestions };
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('pw_setup') }}"><b> Portfolio Website</b> </a>
+<a href="{{ url_for('pw_setup') }}"> Setup</a>
+<a href="{{ url_for('pw_python_setup') }}"> Python Setup</a>
+<a href="{{ url_for('pw_flask_code') }}"> Flask Code</a>
+<a href="{{ url_for('pw_css_code') }}"> CSS Code</a>
+<a href="{{ url_for('pw_run_locally') }}" class="active"> Run Locally</a>
+<a href="{{ url_for('pw_hosting') }}"> Hosting / Git & Heroku</a>
+{% endblock left_column %}   
+      
+{% block middle_column %}   
+<div class="main base-tutorial">
+  <h2>Setting up CMD</h2>
+  <p>Time to put all that code into action. After learning how to run the code the world really is your oyster. Experimentation is key to learning more about web dev!</p>
+  <p>
+    Visual studio gives us built in features to run our code and flask provides a simple way of checking the code locally. In Visual studio in the top menu bar click terminal,
+    new terminal if there isn't one already there. The working directory should be already set to our project folder (flask tutorial). Regardless of this we need to change
+    the directory as our script.py file is a folder deeper in /mysite. As we have set-up our virtual environment to contain the packages we need we must run the script through 
+    this environment. This is shown below.
+  </p>
+  <pre><code class="language-python">C:\your_standard_file_path\flask tutorial> virtual\Scripts\python mysite\script.py</code></pre>
+
+  <p>
+    We direct windows through the virtual environment folders to "python" which calls our installation of python. We then run the script named script.py that is one folder 
+    deeper than the project folder. If you are having issues here check and make sure your filepath is set to the flask tutorial folder and you named your python file 
+    script.py.
+  </p>
+  <p>Hopefully everything has went smoothly and you are now sitting with your very own local web page, woooo! My worked example is included below</p>
+
+  <img id="myImg" src="../static/images/webpage-test.PNG"   class="clickable-pic">
+</div> <!--end of main-->
+
+
+<div class="center">
+  <div class="pagination">
+    <a href="{{ url_for('pw_css_code') }}">&laquo;</a>
+    <a href="{{ url_for('pw_setup') }}">1</a>
+    <a href="{{ url_for('pw_python_setup') }}">2</a>
+    <a href="{{ url_for('pw_flask_code') }}">3</a>
+    <a href="{{ url_for('pw_css_code') }}">4</a>
+    <a href="{{ url_for('pw_run_locally') }}" class="active">5</a>
+    <a href="{{ url_for('pw_hosting') }}">6</a>
+    <a href="{{ url_for('pw_hosting') }}">&raquo;</a>
+  </div>
+</div>
+{% endblock middle_column %}   
+      
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  

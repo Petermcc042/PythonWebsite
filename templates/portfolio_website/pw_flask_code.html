@@ -1,0 +1,130 @@
+{% extends "Essential_Templates/base_tutorial.html" %}
+{% block left_column %}    
+<a href="{{ url_for('pw_setup') }}"><b> Portfolio Website</b> </a>
+<a href="{{ url_for('pw_setup') }}"> Setup</a>
+<a href="{{ url_for('pw_python_setup') }}"> Python Setup</a>
+<a href="{{ url_for('pw_flask_code') }}" class="active"> Flask Code</a>
+<a href="{{ url_for('pw_css_code') }}"> CSS Code</a>
+<a href="{{ url_for('pw_run_locally') }}"> Run Locally</a>
+<a href="{{ url_for('pw_hosting') }}"> Hosting / Git & Heroku</a>
+{% endblock left_column %}   
+      
+{% block middle_column %}   
+<div class="main base-tutorial">
+  <h2>Flask Starter Code</h2>
+  <p>Finally we get to write some code! Thankfully, Flask requires relatively little code to setup. Opening our project folder (flask tutorial) in visual studio code 
+    create a file named script.py in the mysite folder. This is the base script that links all of our files together. Below I have included the code for this page. 
+  </p>
+
+  <pre><code class="language-python">
+    from flask import Flask, render_template
+
+    app = Flask(__name__)
+    
+    @app.route('/')
+    def home():
+        return render_template("home.html")
+    
+    @app.route('/cv/')
+    def cv():
+        return render_template("cv.html")
+    
+    @app.route('/project1/')
+    def project1():
+        return render_template("project1.html")
+    
+    @app.route('/project2/')
+    def project2():
+        return render_template("project2.html")
+    
+    if __name__ == "__main__":
+        app.run(debug=True)
+  </code></pre>
+
+  <p>
+    The code starts by importing flask and the render_template libraries. The next step is to create an instance using the <code>Flask()</code>Flask() command.
+    We use <code>__name__</code> as default for the name of this application. The <code>@app.route()</code> is triggered when that specific URL is entered. 
+    In our case when running locally when http://localhost:5000/ , likewise, http://127.0.0.1:5000/ is called, it shall trigger the <code>home():</code> function returning 
+    our home.html page. Likewise when we call localhost:5000/cv/ it shall then call our cv.html page. Finally, the if statement is used so that we can update the 
+    page live while making changes in the editor.
+  </p>
+
+
+  <h2>Flask Templates</h2>
+  <p>One of the great benefits of Flask is that it is very easy to create templates for each of your separate pages. This is good for a consistent theme and cuts out a lot 
+    of uneccessary coding. Templates are normal html files with a section missing. We can then create other html files to slot into these missing sections. For example, create
+    the generic header files for the navigation bar at the top of every page as we will do. 
+  </p>
+  <p>Create in the templates folder a file called navbar.html. This will serve as our template which will be used across each page. The file code is shown below.</p>
+
+  <pre><code class="language-html">
+    &lt;!DOCTYPE html&gt;
+
+    &lt;html&gt;
+        &lt;head&gt;
+            &lt;!--insert for css link later--&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;div class="topnav"&gt;
+                &lt;a class="active" href="&lcub;&lcub; url_for('home') &rcub;&rcub;"&gt;Home&lt;/a&gt;
+                &lt;a href="&lcub;&lcub; url_for('cv') &rcub;&rcub;"&gt;CV&lt;/a&gt;
+                &lt;a href="&lcub;&lcub; url_for('project1') &rcub;&rcub;"&gt;Project 1&lt;/a&gt;
+                &lt;a href="&lcub;&lcub; url_for('project2') &rcub;&rcub;"&gt;Project 2&lt;/a&gt;
+              &lt;/div&gt;
+
+            &lt;div class = "container"&gt;
+                &lcub;%block content%&rcub;
+                &lcub;%endblock%&rcub;
+            &lt;/div&gt;
+        &lt;/body&gt;
+
+    &lt;html&gt;
+  </code></pre>
+
+  <p>Each section is designed to be used throughout our webpage generically. We leave a line for the css file reference that we will create later in the
+    head section. Next comes a simple navbar example (to learn more about html check out w3schools), however now we see a difference in code from standard html.
+    Flask allows us to call python like code in our html files when inside curly brackets. In these cases when we click on each of the navbar buttons the
+      <code>url_for()</code> function is called which generates a url from the method included. <code>('home')</code> generates its route which is http://127.0.0.1:5000/.
+  </p>
+  <p>
+    Finally, we create a container class which will allow us to insert our separate html files into this section.
+  </p>
+  <p>
+    Now that the template is set-up, we can create our separate pages and fill them out with whatever content we need. For simplicity in the project I will just create
+    a header with the page name and one sentance as shown below.
+  </p>
+  <p>
+    The big change we can see to normal code is the inclusion of the extends, and the begining and ending code for the block. The extends function accesses our navbar file,
+    then all code inside the content block is slotted inside the section created in the navbar file.
+  </p>
+
+  <pre><code class="language-html">
+    &lcub;%extends "navbar.html"%&rcub;
+    &lcub;%block content%&rcub;
+    &lt;body&gt;
+        &lt;h1&gt;Home Page&lt;/h1&gt;
+        &lt;p&gt;Welcome to the home page&lt;/p&gt;
+    &lt;/body&gt;
+    &lcub;%endblock%&rcub;
+  </code></pre>   
+</div> <!--end of main-->
+
+
+<div class="center">
+  <div class="pagination">
+    <a href="{{ url_for('pw_python_setup') }}">&laquo;</a>
+    <a href="{{ url_for('pw_setup') }}">1</a>
+    <a href="{{ url_for('pw_python_setup') }}">2</a>
+    <a href="{{ url_for('pw_flask_code') }}" class="active">3</a>
+    <a href="{{ url_for('pw_css_code') }}">4</a>
+    <a href="{{ url_for('pw_run_locally') }}">5</a>
+    <a href="{{ url_for('pw_hosting') }}">6</a>
+    <a href="{{ url_for('pw_css_code') }}">&raquo;</a>
+  </div>
+</div>
+{% endblock middle_column %}   
+      
+{% block right_column %}  
+<a href="#"><b> Portfolio Website</b> </a>
+<a href="#setup"> Setup</a>      
+{% endblock right_column %}  

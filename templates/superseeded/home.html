@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="pandoc" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+        <link rel="icon" href="/t2logo.png">
+        
+        <title>Showcase</title>
+                
+        <!--my custom css files-->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/mynavbar.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/genericpage.css')}}" type="text/css">
+
+        <!-- icons -->
+        <link href="../static/site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+        <link href="../static/site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+        <!-- inline code highlighting -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/night-owl.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <!-- fonts - standard -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    
+        <link rel="icon" type="image/png" href="glasses.ico"/>
+
+
+
+        <link rel="stylesheet" href="{{url_for('static', filename='css/hero_threeProjects.css')}}" type="text/css">
+    </head>
+    
+    <header>
+      <div class="navbar">
+        <a href="{{ url_for('home') }}" class="logo"><span class="fas fa-home"></span>  Home</a>
+        <!--link to tutorial menu-->
+        <a href="{{ url_for('tutorials_list') }}"><span class="fas fa-book-open"></span>   Tutorials 2</a>
+        <!--Begining of List Menu-->
+        <div class="dropdown">
+            <button class="dropbtn">Tutorials 2...  <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <div class="header"><h2></h2></div>
+                <div class="row">
+                    <div class="column">
+                        <h3>     Learn R</h3>
+                        <a href="{{ url_for('insurance') }}">  Basics <i>( R )</i></a>
+                        <a href="{{ url_for('insurance') }}">  ggplot2 <i>( R )</i></a>
+                        <a href="{{ url_for('insurance') }}">  dplyr <i>( R )</i></a>
+                        <a href="{{ url_for('insurance') }}">  Insurance Analysis <i>( SQL/R )</i></a>
+                        <a href="{{ url_for('covidanalysis') }}">  Covid Statistics <i>( SQL/Tableau )</i></a>
+                        <a href="{{ url_for('flaskportweb') }}"> Flask Portfolio Website <i>( Python/HTML/CSS )</i></a>
+                        <a href="{{ url_for('regpredweb') }}">  Regression Prediction <i>( Python/HTML/CSS )</i></a>
+                    </div>
+                    <div class="column">
+                        <h3>Learn Python</h3>
+                        <a href="{{ url_for('decisiontreetut') }}"><span class="fas fa-book-open"></span>  Coding a Decision Tree <i>( Python )</i></a>
+                        <a href="{{ url_for('knearest') }}"><span class="fas fa-book-open"></span>  Coding a K-Nearest Algorithm <i>( Python )</i></a>
+                        <a href="#"> coming soon</a>
+                        <a href="#"> coming soon</a>
+                    </div>
+                    <div class="column">
+                        <h3>Learn Data Analytics</h3>
+                        <a href="{{ url_for('walmartanalysis') }}"><span class="fas fa-book-open"></span>  Walmart Data Analysis<i>( R )</i></a>
+                        <a href="{{ url_for('custclust') }}"><span class="fas fa-book-open"></span>  KMeans Customer Segregation<i>( Python )</i></a>
+                        <a href="{{ url_for('churn') }}"><span class="fas fa-book-open"></span>  Churn Analysis <i>( R )</i></a>
+                        <a href="{{ url_for('covidshiny') }}"><span class="fas fa-book-open"></span>  Covid Visualisations using Shiny<i>( R )</i></a>
+                    </div>
+                    <div class="column">
+                      <h3>Learn Google Sheets</h3>
+                      <a href="#"> coming soon</a>
+                      <a href="#"> coming soon</a>
+                      <a href="#"> coming soon</a>
+                      <a href="#"> coming soon</a>
+                  </div>
+                  <div class="column">
+                    <h3>Web Dev</h3>
+                    <a href="#"> coming soon</a>
+                    <a href="#"> coming soon</a>
+                    <a href="#"> coming soon</a>
+                    <a href="#"> coming soon</a>
+                  </div>
+                </div>
+            </div>    
+        </div>
+        <div class="navbar-right">
+          <a href="{{ url_for('cv') }}" class="logo"><span class="fas fa-address-card"></span>  About</a>
+          <a href="https://github.com/Petermcc042" target="_blank"><span class="fa fa fa fa-github"></span></a>
+          <a href="https://www.linkedin.com/in/petermcclintock/" target="_blank"><span class="fa fa fa fa-linkedin"></span></a>
+          <a href="https://www.instagram.com/pedromcc17/" target="_blank"><span class="fa fa fa fa-instagram"></span></a>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <div class="hero-image">
+        <div class="image-text">
+          <div class="top-text">A hub for coding tutorials</div>
+          <div class="bottom-text">Tutorials 2</div>
+        </div>
+      </div>
+    </nav>
+
+    <section>
+      <div class="main-container">
+          <div id="header">
+            <h1 class="title toc-ignore"><strong>Welcome</strong></h1>
+          </div>
+  
+          <div id="about" class="section level2">
+            <h2>About</h2>
+            <h4>12/11/2021</h4>
+            <p>The aim of this website is to provide a centralised knowledge hub for data analysis and manipulation.</p>
+            <br>
+            <p>The scope of projects ranges from very specific tutorials to much more general tips and processes</p>
+          </div>
+      </div>
+    </section>
+
+
+    <article>
+      <div id="topprojects">
+        <h2 style="text-align:center;">My Favourite Projects</h2>
+        <div class="projectcontainer">
+          <div class="projectimage">
+            <a href="{{ url_for('covidanalysis') }}">
+              <img src="../static/images/covid.png" alt="my picture" style="width:100%" />
+            </a>
+          </div>
+          <div class="projectimage">
+            <a href="{{ url_for('custclust') }}">
+              <img src="../static/images/kmeans.png" alt="my picture" style="width:100%" />
+            </a>
+          </div>
+          <div class="projectimage">
+            <a href="{{ url_for('covidshiny') }}"><img src="../static/images/shinycovid.png" alt="my picture" style="width:100%" /></a>
+          </div>
+        </div>
+      </div>  
+    </article>
+
+
+
+    <footer>
+      <p>Author: Peter McClintock<br>
+        <a href="{{ url_for('cv') }}" class="logo"><span class="fas fa-address-card"></span>  CV</a></p>
+    </footer>
+
+        
+  </body>
+
+
+</html>

@@ -1,0 +1,190 @@
+{%extends "newnavbar.html"%}
+{%block content%}
+
+<div class="main-container">
+
+  <div class="sidenav">
+    <a href="#header">Title</a>
+    <a href="#overview">Overview</a>
+    <a href="#abstract">Abstract</a>
+    <a href="#background">Background</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#data" style="font-size: 16px;"> - Data</a>
+    <a href="#feature-engineering" style="font-size: 16px;"> - Feature Engineering</a>
+    <a href="#model-selection" style="font-size: 16px;"> - Model Selection</a>
+    <a href="#model-tuning" style="font-size: 16px;"> - Model Tuning</a>
+    <a href="#results">Results</a>
+    <a href="#conclusion">Conclusion</a>
+  </div>
+  
+  <head>
+    <title>Focus Features of Churn Modelling in Banking</title>
+  </head>
+  
+  <body>
+    <div id="header">
+      <h1 class="title toc-ignore"><strong>Focus Features of Churn Modelling in Banking</strong></h1>
+    <div>
+  
+    <div id="Name" class="section level1">
+      <h4>Peter McClintock</h4>
+      <h4>14/04/2021</h4>
+    </div>
+    
+    <div id="overview" class="section level1">
+      <h1>Overview</h1>
+      <p>This research was one of my final projects in the second term of my masters degree. It is in the style of an academic research paper and in it I try find the optimal model for 
+        predicting customer churn in the banking industry. I then go on to show the factors that are most optimal in predicting customer churn and make suggestions that company can implement.</p>
+    </div>
+    <div id="abstract" class="section level1">
+      <h1>Abstract</h1>
+      <p>Churn modelling has become a vital part of Customer Relationship Management (CRM). At it’s core churn modelling is used to predict those customers who are most likely to leave a business. From this point companies can work on caring programmes that can help to stabilise or incentivise churn customers to stay. The topic has seen a rapid increase in accuracy due to the inclusion of Machine Learning (ML) algorithms. Especially in binary classification problems such as the one analysed in this paper, ML can produce an accurate result. This paper looks at churn in the banking sector.</p>
+    </div>
+  
+    <div id="background" class="section level1">
+      <h1>Background</h1>
+      <p>Customer churn is the act of customers to stop doing business with a company in a given period. It is becoming an issue particularly in service-based industries and as a result a major focus for any business that works in such a highly competitive sector. Banks provide numerous services through multiple different products, like ATM’s, debit and credit cards, and internet banking, etc. As services like banking move online, customers will only increase scrutiny over products as more and more information is available. This in turn will only further the likelihood of customer churn as the option that maximises utility for customers will be more accessible. This maximisation of utility could depend on many factors, such as interest rate, customer interaction, overdraft limits, age specific products, etc, each of which could be a potential reason for a customer to leave the business. Due to these factors, there lies opportunity in developing a model which can predict customers that are likely to churn based on their available data. Secondly, it would be highly beneficial to identify the most important factors that contribute to customer churn.</p>
+      <p>This leads to the main questions asked by this paper.</p>
+      <ol style="list-style-type: decimal">
+        <li>What factors should commercial banks focus on to stop customer churn?</li>
+      </ol>
+      <p>Hence this paper includes a basic evaluation of several models to find the optimal one. From this the features are analysed to show what the model has identified as most significant. The paper does not give a comprehensive list of the most important factors that affect banks. As well as this the study will focus only on commercial banks with the aim of observing the trends in the general population.</p>
+      <p>From papers as early as Bolton (1998), CRM importance has been studied. In his paper Bolton proposes that the length of time a customer has been with a service provider is one of the most important factors in keeping a good relationship. This duration estimation model is based on a customer’s perceived future utility weighted against the cost of ending the current relationship. He concludes by saying customers with longer tenure with a business perceive future costs by less.</p>
+      <p>As time has progressed and model complexity has grown the emergence of classification trees benefited the field of churn modelling. Neslin et al. (2006) in their comparative study of models and the different factors that affect such models find that in general trees and logistic regression are robust in classification problems to techniques used in pre-processing. For example, in reduced feature data sets and in highly subsampled data sets, decision trees, random forests and logistic regressions prove to still have a high level of sensitivity and specificity. They also find that in reduced feature sets, specificity is greatly improved. One area that they talk about for future research is in variable selection methods to help data reduction.</p>
+      <p>Improving upon the analysis of individual models, ensemble methods can produce greater levels of predictive ability. Kumar and Ravi (2008) propose an ensemble method with majority voting, incorporating multi-layer perceptron, logistic regression, decision trees, random forest, and a support vector machine to create an accurate estimation of credit card churn predictions. They like Neslin et al. (2006), find that using subsampling methods, in this case SMOTE, provide greater accuracy in predictions on unseen data. As well as this model improvement with cross validation also helps to add to the accuracy of their estimates.</p>
+      <p>Recent studies have tried to predefine categories from which models can be built upon. Around this time the introduction and practical implementation of boosting models becomes apparent. Lu et al. (2012) attempt to help with model prediction through clustering customers into low and high-risk churn groups, whereby the churn risk is three times higher in one cluster.</p>
+      <p>Another popular method for analysis of data is the use of deep learning models such as neural nets (Agrwal et al. 2017). Benefits of using neural nets is the integrated feature elimination aspect that means that irrelevant features do not typically impact the model as it would in other algorithms.</p>
+      <p>In many of the paper evaluations of a range of models, it is found that boosting models typically leads to higher levels of accuracy or precision based on the metric scrutinised. For example, using AdaBoost in a range of models Vafeiadis et al. (2015) found that they could improve accuracy and the F measure in decision tree and support vector machine models. Boosting models appear to be growing in popularity with uptake on machine learning sites such as kaggle.com.</p>
+      <p>From this point in time models appear to be situational and picked based both on author preference as well as predictive power. For example, Keramati et al. (2016) return to a familiar decision tree model to present their findings.</p>
+      <p>This paper tries to build upon the work of the papers detailed and include each aspect of improvement. As such the final model used in prediction is a gradient boosted model which in testing provided the best predictive power. Subsampling plays a key part in several initial papers and as such it is included, as well as feature selection, which was a growth point for Neslin et al. (2006), and so is included. Finally, to try and encompass a fair selection of models that are currently used we run an initial test of several to decide which to move forward with.</p>
+      <p>The sections follow as a methodology section which lays out the data processing element subsection followed by a model selection and tuning section. Section 3 lays out the results and interpretation of the data in the business context. The paper is closed with a summary of the results and possible future research suggestions in section 4</p>
+    </div>
+    
+    <div id="methodology" class="section level1">
+      <h1>Methodology</h1>
+      <p>This section is split into two sections which outline the analysis conducted. First is the data section where all information on the predictors is detailed.</p>
+      <div id="data" class="section level2">
+        <h2>Data</h2>
+        <p>The data obtained is accessed from Kaggle.com and represents typical data customer information for a bank. The datasets outcome variable, Exited, shows whether the customer remained with the bank or left, and this was converted to a factor variable with levels, Stay (0) and Leave (1). As would be expected in churn results, the dependent variable shows an uneven split in the data with 79.6% of customers staying at the bank with 20.4% leaving. When evaluating models and performance results this will be kept in mind. The data has ten thousand observations with thirteen features which are a mix of categorical and numerical values.</p>
+        <p>The predictor variables show some insights into likelihood of churn. Below is a table detailing the descriptive statistics of the included non-dummy variable predictors.</p>
+        <p><img src="../static/images/churn_stats.PNG" class="pic"></p>
+        <p>The data showed no immediate quality issues, for example an illogical salary or age, and so no values have been manipulated. As well as this, oulier or “Anomaly” results have not been excluded following from the data as they are believed to be more likely a systematic pattern (Gelman, Hill, &amp; Vehtari, 2020). When looking at box plots, balance, credit score, estimated salary, credit card, number of products and tenure all show no indication on changing levels of churn. However, the other variables do show variance. The average age of those who leave tends to be higher and if a customer is deemed to be an inactive member, they are more likely to churn. Finally, female customers are more likely to leave.</p>
+        <p>The predictors show no signs of lack of unique variables in analysis, (1. Max Kuhn, 2019) and there is virtually no correlation in the data.</p>
+        <p>For testing, the data is split into training and validation sets with an 80:20 split respectively. After the split, the outcome variables class distribution remained at 79.6% and 20.4% in both samples due to use of the createdatapartition() function in the caret package preserving the distribution, (2. Max Kuhn, 2019).</p>
+        <p>
+          Finally, in the data cleaning to aid the linear discriminant model the data is standardised. This follows the equation below whereby each data point results with a zero 
+          mean (<span class="math inline">\(\mu\)</span>) and unit variance (<span class="math inline">\(\sigma\)</span>). The formula for standardisation is as follows 
+          <span class="math inline">\(y = ( x - \mu) / \sigma\)</span>.</p>
+      </div>
+      
+      <div id="feature-engineering" class="section level2">
+        <h2>Feature Engineering</h2>
+        <p>The first step in processing is creating dummy variables for the binary variables which include, gender, HasCrCard, IsActiveMember and Location. For location, only three countries are specified and each are given an individual dummy variable. To evaluate performance of the features, recursive feature elimination is employed to try and identify an optimal number of variables from our data set. Each variable is ranked based on the variable’s importance to a model and at each iteration of feature selection the best ranking predictors are retained to measure the next model’s performance (3. Max Kuhn, 2019). Using the rfe() package in R, the variables are evaluated on a random forest model and to reduce the impact of “selection bias” talked about in Ambroise and McLachlan (2002), 5 fold cross validation is used. The summary of the variables additional accuracy is shown below.</p>
+        <p><img src="../static/images/cvvariables.PNG" class="pic"></p>
+        <p>Figure 1 shows that after 6 variables the additional accuracy gained is minimal. As well as this, due to the random selection-based nature of cross validation, running tests repeatedly we find variance in the optimal number of variables ranging from 6-12. As such, we cannot accurately identify the optimal number consistently and so it is selected as the minimum of 6. With the top 4 variables shown below.This reduced feature set is included as a separate model in the selection testing.</p>
+      </div>
+  
+      <div id="model-selection" class="section level2">
+        <h2>Model Selection</h2>
+        <p>In total nine models are evaluated with the ranking metric being area under the receiver operating characteristic (ROC) curve. The included models are</p>
+        <ul>
+          <li>Linear Discriminant Analysis</li>
+          <li>CART</li>
+          <li>KNN</li>
+          <li>SVM</li>
+          <li>Decision Tree</li>
+          <li>Random Forest</li>
+          <li>Neural Net</li>
+          <li>Gradient Boosted (all features used)</li>
+          <li>Gradient Boosted (six features)</li>
+        </ul>
+        <p>Figure 2. shows the models ranked on AUC and shows their sensitivity and specificity.</p>
+        <p><img src="../static/images/modelselection.PNG" class="pic"></p>
+        <p>As is shown in figure 2, the gradient boosted model (gbm) initially has the highest AUC and due to this we choose it for further analysis.</p>
+        <p>Boosting as an origin works on the idea of creating multiple inaccurate rules of classification and combining them to create an accurate set of rules for prediction. The exact model used is the AdaBoost algorithm introduced by Freund and Schapire (1999) and the idea of the model is iterative learning through adding weak classifiers to create a much stronger classifier. Each classifier is weighted based on its additional accuracy (Lu et al. 2012). As such the reduced feature version only serves as a negative due to the inbuilt variable selection process of the gbm model</p>
+        <p>One potential problem that is identified in figure 3 is the contrast between sensitivity and specificity. Stemming from a medical origin both words are similar. Sensitivity is the probability of predicting disease correctly, given that the true state is has disease. Specificity is the probability of predicting the absence of disease correctly given that the true state is does not have disease. In the above case sensitivity looks at the probability that the customer stays. Looking at the gradient boosted model there is a large value of … which means that the model predicts … percent of the correct values. However, it has a much lower value of specificity In all of the models this is low. This is assumed to be due to the class imbalances talked about in section 3.1.</p>
+        <p><img src="../static/images/subsampling.PNG" class="pic"></p>
+        <p>To counteract the class imbalance, three subsampling methods were evaluated. Ling and Li (1998) use up-sampling to reduce the impact, whereby the minority class is sampled with replacement bringing the number of observations up to approximately the same number as the majority class. In the data this results in a class split of 6371 for both classes. The second subsampling method used is down-sampling, where a random selection of the majority class is sampled to match the percentage of the minority class. The “leave” value in the data only makes up 20.4% of the data and as such this is matched in the “stay” values. This generates the number of observations for each individual class as 1630. The final method evaluated is a hybrid method that both down sample and generate new values for the minority class. This paper uses the ROSE method from Menardi and Torelli (2010), which attempts to balance the classes. This method results with 4045 observations for stay and 3956 for leave.</p>
+        <p>The different distributions are then used to build separate models and we can see the results above. When up-sampling is used a large improvement in specificity is observed while sensitivity falls. This does lead to an overall increase in ROC, however, possibly due to the data both in the training and validation sets having the same class distribution, the up-sampled model performs worse in testing. This is because of the lower sensitivity probability. As such, we continue with the initial gbm model as it has been the most consistent. For tests where the class distribution is not the same in both data sets or unknown, the up-sampled model would be explored for tuning.</p>
+      </div>
+  
+      <div id="model-tuning" class="section level2">
+        <h2>Model Tuning</h2>
+        <p>
+          For model tuning the gbm model has four hyperparameters. Interaction depth, number of trees, shrinkage, and minimum number of observations in a node. Interaction 
+          depth sets the highest level of variable interaction allowed while training. The number of trees is simply the number of iterations of the model. Shrinkage is also 
+          known as the learning rate and is used for shrinking the impact of each additional fitted tree. It effectively is a penalising measure for the importance of each 
+          consecutive iteration and typically the lower the value used the better OOB performance achieved (Ridgeway 2007). For each of the talked about parameters a range of 
+          values was evaluated. Interaction depth was evaluated for odd values from 1 to 9. The number of trees was evaluated from 100 to 3000 in intervals of 100. Shrinkage and 
+          the observation value were set permanently at 0.1 and 20 respectively. The results of this are shown below.
+        </p>
+        <p><img src="../static/images/roccv.PNG" class="pic"></p>
+        <p>To clarify the results, the best model tuning values obtained were a tree number of 100, and interaction depth of 5. This is the model used in the results.</p>
+      </div>
+    </div>
+  
+    <div id="results" class="section level1">
+      <h1>Results</h1>
+      <p>The table below shows the confusion matrix for the final model talked about in section 2.3, as well as some accuracy statistics.</p>
+      <p><img src="../static/images/confusionmatrix.PNG" class="pic"></p>
+      <p>The gbm model shows high sensitivity but lacks in specificity. This means that from the data the ability to correctly predict true positive values is high while the probability of predicting true negative values is much lower. In relation to customer churn, it means that the model is much better at predicting that a customer will stay over a customer that will leave. The next evaluation metrics discussed are precision, recall and the F-measure. Precision is the proportion of the predicted positive classes that are correct. Recall is the proportion of the predicted positive classes that were correctly identified. Finally, as neither statistic alone is solid enough evidence the F measure combines both precision and recall into one value, whereby a value closer to one implies a better combined precision and recall is achieved, (Fawcett 2006). As is shown in figure 6, both the precision and recall values are high and achieve a F measure of 0.92 meaning the overall ability to predict that the customer stays is accurate and precision means that we hit these results often. An overall accuracy of 0.86 may seem good initially however, as Galar et al. (2011) talk about accuracy in the context of severe class imbalance can be misleading. It does not distinguish between the correct number identified in both classes. This is reflected in the kappa value of 0.52.</p>
+      <p>Regardless of the imbalance for unseen data the gbm model does provide some skill in prediction. With an ROC of 0.86 there is a large proportion of correct estimations.</p>
+      <p>As is shown above the final model provides a reasonable set of predictions for the data set. It can somewhat accurately identify results and from this we can determine using the gbm models built in importance index the most important variables identified. These are shown below.</p>
+      <p><img src="../static/images/importancefactors.PNG" class="pic"></p>
+      <p>As is clear from the importance index there are two main features which play the main role in prediction, age, and the number of products. Variable importance is determined by calculating the relative importance of each variable. This is calculated by how much the mean squared error over all trees was improved or decreased because of the choice of the variable at the split. This means in the figure 6 above age and the number of products owned proved to be the two most important variables reliably over multiple iterations.</p>
+      <p>In relation to literature Keramati et al. (2016) also find that in their results that age is important in deciding whether customers will churn or not. In a similar vein number of transactions is a key feature in the model which arguably mirrors number of products in our model. However, their main feature was the total amount of transaction value in dollars used in online banking. As well as this they find that tenure is important while in our results it is barely significant.</p>
+      <p>Moving forward to answer the initial research question, the factors that banks should primarily focus on are evident from figure 6. Clearly if age and the number of products used in the bank are the two main reasons for customers not churning. As such two possible recommendations could be the implementation of age specific products that could help reduce churn at relevant age groups. Secondly, the increase of products. This could possibly be implemented in the form of online banking and the increase additional products such as balance and spending insights.</p>
+    </div>
+  
+    <div id="conclusion" class="section level1">
+      <h1>Conclusion</h1>
+      <p>This paper attempted to through a highly predictive model provide an insight into the main features that affect customer churn. From the gradient boosted model used it can be said that age and the number of products that customers have greatly affect the chances of whether they will churn or not. As a suggestion then based on the limited data used these two values should be taken for further analysis. The paper tries to incorporate as many methods as possible from data manipulation through to prediction that are currently being used in literature. However, it is found that some of the processes such as subsampling and feature selection provide little to no benefit in the gradient boosted model combined with the data imbalances.</p>
+      <p>In a business sense based on the data we suggest that the main features that banks should focus on are age and number of products. This in turn should help to reduce the level of customer churn as these are the two main features identified in succesfully predicting a customer stays with the bank.</p>
+      <p>A limitation of the study comes in the form of limited data. As talked about in section 3 Keramati et al. (2016) find that other banking features are the main factors affecting churn. However, the data used in this study has limited banking features. As such, future research should look at a wider range of banking products to see if specific products contribute more. As well as this while several models were evaluated initially only one was taken further for tuning. Other models such as a neural net or random forest may have ended with more accurate results depending on tuning. As such deeper dives into these individual models should be explored in future papers.</p>
+    </div>
+    <div id="appendix" class="section level1">
+      <h1>Appendix</h1>
+      <p>Link to csv download for r : <a href="https://raw.githubusercontent.com/Petermcc042/MastersYearData/main/indices_m.csv" class="uri">https://raw.githubusercontent.com/Petermcc042/MastersYearData/main/indices_m.csv</a></p>
+    </div>
+  
+    <div id="reference" class="section level1">
+      <h1>Reference</h1>
+      <ul>
+        <li>Max Kuhn (27/03/2019) 3.2 Zero- and Near Zero-Variance Predictors, Available at: <a href="https://topepo.github.io/caret/pre-processing.html" class="uri">https://topepo.github.io/caret/pre-processing.html</a> (Accessed: 17/04/2021).</li>
+        <li>Max Kuhn (27/03/2019) 4.1 Simple Splitting Based on the Outcome, Available at: <a href="https://topepo.github.io/caret/pre-processing.html" class="uri">https://topepo.github.io/caret/pre-processing.html</a> (Accessed: 17/04/2021).</li>
+        <li>Max Kuhn (27/03/2019) 20 Recursive Feature Elimination, Available at: <a href="https://topepo.github.io/caret/recursive-feature-elimination.html" class="uri">https://topepo.github.io/caret/recursive-feature-elimination.html</a> (Accessed: 19/04/2021).</li>
+        <li>Ambroise, C. and McLachlan, G.J., 2002. Selection bias in gene extraction on the basis of microarray gene-expression data. Proceedings of the national academy of sciences, 99(10), pp.6562-6566.</li>
+        <li>Menardi, G. and Torelli, N., (2014) Training and assessing classification rules with imbalanced data. Data mining and knowledge discovery, 28(1), pp.92-122.</li>
+        <li>Ridgeway, G., 2007. Generalized Boosted Models: A guide to the gbm package. Update, 1(1), p.2007.</li>
+        <li>Bolton, R.N., 1998. A dynamic model of the duration of the customer’s relationship with a continuous service provider: The role of satisfaction. Marketing science, 17(1), pp.45-65.</li>
+        <li>Neslin, S.A., Gupta, S., Kamakura, W., Lu, J. and Mason, C.H., 2006. Defection detection: Measuring and understanding the predictive accuracy of customer churn models. Journal of marketing research, 43(2), pp.204-211.</li>
+        <li>Anil Kumar, D. and Ravi, V., 2008. Predicting credit card customer churn in banks using data mining. International Journal of Data Analysis Techniques and Strategies, 1(1), pp.4-28.</li>
+        <li>Freund, Y., Schapire, R. and Abe, N., 1999. A short introduction to boosting. Journal-Japanese Society For Artificial Intelligence, 14(771-780), p.1612.</li>
+        <li>Lu, N., Lin, H., Lu, J. and Zhang, G., 2012. A customer churn prediction model in telecom industry using boosting. IEEE Transactions on Industrial Informatics, 10(2), pp.1659-1665.</li>
+        <li>Agrawal, S., Das, A., Gaikwad, A. and Dhage, S., 2018, July. Customer churn prediction modelling based on behavioural patterns analysis using deep learning. In 2018 International conference on smart computing and electronic enterprise (ICSCEE) (pp. 1-6). IEEE.</li>
+        <li>Fawcett, T., 2006. An introduction to ROC analysis. Pattern recognition letters, 27(8), pp.861-874.</li>
+        <li>Vafeiadis, T., Diamantaras, K.I., Sarigiannidis, G. and Chatzisavvas, K.C., 2015. A comparison of machine learning techniques for customer churn prediction. Simulation Modelling Practice and Theory, 55, pp.1-9.</li>
+        <li>Viera, A.J. and Garrett, J.M., 2005. Understanding interobserver agreement: the kappa statistic. Fam med, 37(5), pp.360-363.</li>
+        <li>Keramati, A., Ghaneei, H. and Mirmohammadi, S.M., 2016. Developing a prediction model for customer churn from electronic banking services using data mining. Financial Innovation, 2(1), pp.1-13.</li>
+        <li>Galar, M., Fernandez, A., Barrenechea, E., Bustince, H. and Herrera, F., 2011. A review on ensembles for the class imbalance problem: bagging-, boosting-, and hybrid-based approaches. IEEE Transactions on Systems, Man, and Cybernetics, Part C (Applications and Reviews), 42(4), pp.463-484.</li>
+        <li>Gelman, A., Hill, J., &amp; Vehtari, A. (2020). Data and measurement. In Regression and Other Stories (Analytical Methods for Social Research, pp. 21-34). Cambridge: Cambridge University Press</li>
+      </ul>
+    </div>
+  </body>
+  
+  
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</div>
+
+
+
+{%endblock%}

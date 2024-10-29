@@ -1,0 +1,44 @@
+{% extends "Essential_Templates/base_nav.html" %}
+{% block content %}
+
+
+<section class="global-section tlh">
+  <div class="title-tlh">
+    <h2>Tutorials List</h2>
+  </div>
+  <div class="flex-container-row tlh">
+    <div class="flex-container-column tlh">
+      <h3>Google Sheets</h3>
+      <a href="{{ url_for('gsheets_xlookup') }}"> XLOOKUP vs VLOOKUP</a>
+      <a href="{{ url_for('gsheets_xlookup') }}"> INDEX/MATCH/SUMIF</a>
+    </div>
+
+    <div class="flex-container-column tlh">
+      <h3>Learn Data Science</h3>
+      <a href="{{ url_for('decisiontreetut') }}"> Coding a decision tree from scratch</a>
+      <a href="{{ url_for('knearest') }}"> Coding a KNN Algorithm from scratch</a>
+      <a href="{{ url_for('custclust') }}"> Visualising K-Nearest Algorithm</a>
+    </div>
+
+    <div class="flex-container-column tlh">
+      <h3>Learn Web Dev</h3>
+      <a href="{{ url_for('pw_setup') }}"> Build Your Own Portfolio Website</a>
+      <a href="{{ url_for('regpredweb') }}"> Integrating a Prediction Model With Web</a>
+      <a href="{{ url_for('stickyNav') }}"> Alternative Sticky Navbar</a><!--sticky nav bar-->
+      <a href="{{ url_for('flaskMarkdown') }}"> Markdown Files With Flask</a><!--sticky nav bar-->
+    </div>
+
+    <div class="flex-container-column tlh">
+      <h3>My Old Projects</h3>
+      <a href="{{ url_for('bankingchurn') }}"> Churn Analysis</a>
+      <a href="{{ url_for('shiny_dash') }}"> Covid Visualisations using Shiny</a>
+      <a href="{{ url_for('covidanalysis') }}"> Covid Statistics</a>
+      <a href="{{ url_for('walmartanalysis') }}"> Analysing Walmart Data</a>
+    </div>
+  </div>
+</section><!--end of global section-->
+
+<div class="footer">
+  <p>Author: Peter McClintock </p>
+</div>
+{% endblock content %}
