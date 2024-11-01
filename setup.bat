@@ -9,5 +9,9 @@ if exist %VENV_NAME% (
     echo Creating virtual environment and installing packages...
     python -m venv %VENV_NAME%
     %PYTHON% -m pip install -U pip
+    %PYTHON% -m pip install -Ur requirements.txt
 )
-echo Starting a sub-shell with the virtual environment activated.
+
+REM Run the Python script after setting up the virtual environment
+echo Running script.py...
+%PYTHON% script.py
