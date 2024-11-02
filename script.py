@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request, session
 #from flask_sitemap import Sitemap
 import markdown
+
 import os
 
 
@@ -9,6 +10,39 @@ import os
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Set a secret key for sessions
 #ext = Sitemap(app=app)
+
+
+
+import plotly.graph_objs as go
+import plotly.io as pio
+
+@app.route('/index')
+def index():
+    return '''
+        <form action="/plot" method="get">
+            <label>Select X-axis values:</label>
+            <input type="text" name="x" value="1, 2, 3, 4, 5"><br>
+            <label>Select Y-axis values:</label>
+            <input type="text" name="y" value="1, 4, 9, 16, 25"><br>
+            <button type="submit">Generate Plot</button>
+        </form>
+    '''
+
+@app.route('/plot')
+def plot():
+    # Get the x and y data from the query parameters
+    x_data = [int(i) for i in request.args.get('x', '').split(',')]
+    y_data = [int(i) for i in request.args.get('y', '').split(',')]
+
+    # Create a Plotly figure
+    fig = go.Figure(data=[go.Scatter(x=x_data, y=y_data, mode='lines+markers')])
+    fig.update_layout(title='Generated Plotly Chart', xaxis_title='X-axis', yaxis_title='Y-axis')
+
+    # Convert Plotly figure to HTML
+    graph_html = pio.to_html(fig, full_html=False)
+
+    # Pass the HTML to the template
+    return render_template('plot.html', plot_html=graph_html)
 
 def return_markdown(file_name):
     # Path to the Markdown file
@@ -171,7 +205,6 @@ def walmartanalysis():
 @app.route('/regressionprediction/')
 def regpredweb():
     return render_template("home.html")
-
 
 if __name__ == "__main__":
     app.run(debug=True)
