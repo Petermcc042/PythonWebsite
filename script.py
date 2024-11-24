@@ -113,9 +113,9 @@ def gs_home():
     return render_template("gsheets/gs_home.html")
 
 @app.route('/gs/index_match_sumifs')
-def gs_index_match_sumifs():
-    return render_template('gsheets/GS_index_match_sumifs.html', 
-                           article_content=return_markdown('customer_clustering.md'))
+def gsheets_index_match_sumif():
+    return render_template('gsheets/gs_index_match_sumifs.html', 
+                           article_content=return_markdown('index_match_sumif.md'))
 
 @app.route('/gsheets/test')
 def gsheets_test():

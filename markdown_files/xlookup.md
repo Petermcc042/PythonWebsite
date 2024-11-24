@@ -13,9 +13,66 @@ returning the corresponding position in another column.
 Below is a basic example of how VLOOKUP works. There is a table with three columns. 
 You search for a user_id in the first column to return whether they have paid in the third column.
 
-![image](../static/images/pictures/xlookup_vs_vlookup_1.png)
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+  <thead>
+    <tr style="background-color: #f5f5f5; border: 1px solid #ccc;">
+      <th style="border: 1px solid #ccc; padding: 8px;">A</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">B</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  style="background-color: #86b2d3;">
+      <td style="border: 1px solid #ccc; padding: 8px;">User ID</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Invoice Amount</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Paid</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">1516</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">£58</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Yes1</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">1366</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">£53</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Yes2</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">1944</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">£58</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">No3</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">1091</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">£8</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Yes4</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">1204</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">£20</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">No5</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">1174</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">£59</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">No6</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">1998</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">£40</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Yes7</td>
+    </tr>
+  </tbody>
+</table>
 
->=VLOOKUP(A4, A:C, 3, FALSE)
+
+If we take the example below, we would get the result: No3
+
+```
+VLOOKUP(A4, A:C, 3, FALSE)
+```
+
+Formula Breakdown
 
 - search_key: A4 is the value you are trying to find in the first column of the range
 - range: A:C means the range is each column from column A up to and including column C
@@ -64,3 +121,25 @@ Again to highlight some of the benefits again. We simply choose which column to 
 ![xlookup_example](../static/images/pictures/xlookup_vs_vlookup_3.png)
 
 In the example below we added another column to convert the currency from GBP to USD. As you can see the VLOOKUP now shows the incorrect value while the XLOOKUP is correct. This is because, the VLOOKUP simply is returning column 3, while the XLOOKUP is locked onto the Paid column. This issue could be fixed using a MATCH() function in the VLOOKUP, but the XLOOKUP by default proves to be much more robust to sheet changes. 
+
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: #f5f5f5;
+  }
+  code {
+  background-color: #f9f9f9;
+  padding: 2px 4px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: monospace;
+}
+</style>

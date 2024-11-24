@@ -44,3 +44,49 @@ h1 { text-align: center; }
   color: #111;
   display: block;
 }
+
+/*--------------------- Box Links ---------------------------*/
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+
+.homeBox {
+  padding: 0 6px;
+  float: left;
+  width: 33.333333%;
+  margin: 6px 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .homeBox {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .homeBox {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
