@@ -1,2 +1,22 @@
-.*venv
-.venv
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# uv
+.venv/
+uv.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/

@@ -8,7 +8,7 @@ import os
 
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Set a secret key for sessions
+app.secret_key = os.environ.get('SECRET_KEY', 'your_secret_key')  # Use environment variable for production
 #ext = Sitemap(app=app)
 
 
@@ -207,4 +207,8 @@ def regpredweb():
     return render_template("home.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Use PORT environment variable for Render deployment, fallback to 5000 for local dev
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    debug_mode = os.environ.get('FLASK_ENV') != 'production'
+    app.run(debug=debug_mode, host='0.0.0.0', port=port)
