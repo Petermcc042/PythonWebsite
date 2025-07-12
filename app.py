@@ -206,9 +206,5 @@ def walmartanalysis():
 def regpredweb():
     return render_template("home.html")
 
-if __name__ == "__main__":
-    # Use PORT environment variable for Render deployment, fallback to 5000 for local dev
-    import os
-    port = int(os.environ.get('PORT', 5000))
-    debug_mode = os.environ.get('FLASK_ENV') != 'production'
-    app.run(debug=debug_mode, host='0.0.0.0', port=port)
+if __name__ == '__main__':
+    app.run(debug=True)
