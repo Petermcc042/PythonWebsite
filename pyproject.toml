@@ -9,6 +9,9 @@ dependencies = [
     "werkzeug==2.0.2",
     "markdown==3.3.0",
     "plotly>=5.0.0",
+    "flask-login>=0.6.3",
+    "flask-dance>=5.1.0",
+    "sqlalchemy>=2.0.41",
 ]
 
 [project.optional-dependencies]

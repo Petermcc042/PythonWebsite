@@ -9,31 +9,31 @@
   <div class="flex-container-row tlh">
     <div class="flex-container-column tlh">
       <h3>Google Sheets</h3>
-      <a href="{{ url_for('gsheets_xlookup') }}"> XLOOKUP vs VLOOKUP</a>
-      <a href="{{ url_for('gsheets_index_match_sumif') }}"> INDEX/MATCH/SUMIF</a>
+      <a href="{{ url_for('tutorial_handler', category='gsheets', tutorial_name='xlookup_vs') }}"> XLOOKUP vs VLOOKUP</a>
+      <a href="{{ url_for('tutorial_handler', category='gsheets', tutorial_name='index_match_sumifs') }}">INDEX/MATCH/SUMIF</a>
     </div>
 
     <div class="flex-container-column tlh">
       <h3>Learn Data Science</h3>
-      <a href="{{ url_for('decisiontreetut') }}"> Coding a decision tree from scratch</a>
-      <a href="{{ url_for('knearest') }}"> Coding a KNN Algorithm from scratch</a>
-      <a href="{{ url_for('custclust') }}"> Visualising K-Nearest Algorithm</a>
+      <a href="{{ url_for('tutorial_handler', category='data_science', tutorial_name='decisiontreetut') }}"> Coding a decision tree from scratch</a>
+      <a href="{{ url_for('tutorial_handler', category='data_science', tutorial_name='knearest') }}"> Coding a KNN Algorithm from scratch</a>
+      <a href="{{ url_for('tutorial_handler', category='data_science', tutorial_name='custclust') }}"> Visualising K-Nearest Algorithm</a>
     </div>
 
     <div class="flex-container-column tlh">
       <h3>Learn Web Dev</h3>
-      <a href="{{ url_for('pw_setup') }}"> Build Your Own Portfolio Website</a>
-      <a href="{{ url_for('regpredweb') }}"> Integrating a Prediction Model With Web</a>
-      <a href="{{ url_for('stickyNav') }}"> Alternative Sticky Navbar</a><!--sticky nav bar-->
-      <a href="{{ url_for('flaskMarkdown') }}"> Markdown Files With Flask</a><!--sticky nav bar-->
+      <a href="{{ url_for('tutorial_handler', category='portfolio_website', tutorial_name='pw_setup') }}"> Build Your Own Portfolio Website</a>
+      <a href="{{ url_for('tutorial_handler', category='regression_prediction', tutorial_name='regpredweb') }}"> Integrating a Prediction Model With Web</a>
+      <a href="{{ url_for('tutorial_handler', category='web_dev', tutorial_name='sticky_nav') }}"> Alternative Sticky Navbar</a><!--sticky nav bar-->
+      <a href="{{ url_for('tutorial_handler', category='web_dev', tutorial_name='flask_markdown') }}"> Markdown Files With Flask</a><!--sticky nav bar-->
     </div>
 
     <div class="flex-container-column tlh">
       <h3>My Old Projects</h3>
-      <a href="{{ url_for('bankingchurn') }}"> Churn Analysis</a>
-      <a href="{{ url_for('shiny_dash') }}"> Covid Visualisations using Shiny</a>
-      <a href="{{ url_for('covidanalysis') }}"> Covid Statistics</a>
-      <a href="{{ url_for('walmartanalysis') }}"> Analysing Walmart Data</a>
+      <a href="{{ url_for('tutorial_handler', category='old_projects', tutorial_name='bankingchurn') }}"> Churn Analysis</a>
+      <a href="{{ url_for('tutorial_handler', category='old_projects', tutorial_name='shiny_dashboard') }}"> Covid Visualisations using Shiny</a>
+      <a href="{{ url_for('tutorial_handler', category='old_projects', tutorial_name='covidanalysis') }}"> Covid Statistics</a>
+      <a href="{{ url_for('tutorial_handler', category='old_projects', tutorial_name='walmartanalysis') }}"> Analysing Walmart Data</a>
     </div>
   </div>
 </section><!--end of global section-->
